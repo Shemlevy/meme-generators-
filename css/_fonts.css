@@ -5,5 +5,13 @@
     src: url('../assets/fonts/Lato/Lato-Bold.ttf'); 
     font-weight: 700;  }
 
+
+    /*----------  "Maven Pro Regular ----------*/
+
+    @font-face {
+      font-family: 'MavenPro-Regular';
+      src: url('../assets/fonts/maven-pro/MavenPro-Regular.ttf');
+    }
+
   
   
