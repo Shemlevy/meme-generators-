@@ -1,3 +1,6 @@
+@import '_vars.css';
+
+
 body {
-    background: rebeccapurple;
+    background: var(--bg-main-color);
 }
