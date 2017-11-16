@@ -1,0 +1,7 @@
+.gallery {
+    background: lightblue;
+    max-width: 1200px;
+    min-height: 570px;
+    max-height: 100%;    
+    margin: 70px auto;
+}

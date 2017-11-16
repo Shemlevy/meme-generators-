@@ -2,6 +2,8 @@
 @import '_nav.css';
 @import '_fonts.css';
 @import '_dev-info.css';
+@import '_gallery.css';
+
 
 body {
     background: var(--bg-main-color);
