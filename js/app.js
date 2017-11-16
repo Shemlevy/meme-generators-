@@ -60,15 +60,14 @@ function drawOnCanvas(id) {
 
 //function get memes by key
 function getMemeBykey(key) {
+    var imgUrl = [];
     for (var i = 0; i < gImgs.length; i++) {
         var img = gImgs[i];
-        var imgUrl = [];
-        img.keywords.filter(function (keyword) {
+        var x = img.keywords.filter(function (keyword) {
             if (keyword === key) {
                 imgUrl.push(img.url)
-            };
+            }
         });
-
     };
     return imgUrl;
 }
