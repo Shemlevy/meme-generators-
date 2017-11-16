@@ -11,9 +11,9 @@
 </head>
 
 <body>
+    <!-- navigation for desktop -->
     <nav class="main-nav">
         <ul class="desk-nav">
-
             <li>
                 <a href="#" class="main-nav-item">portfolio</a>
             </li>
@@ -30,12 +30,22 @@
     </nav>
     <img src="img/logo/logo-cover.png" alt="" class="logo-cover">
     <img src="img/logo/logo.png" alt="" class="logo">
-    <nav class="mobile-nav"></nav>
-    <section class="container">
-        <secetion class="gellary"></secetion>
-        <secetion class="canvas"></secetion>
 
+    <!-- navigation for mobile -->
+    <nav class="mobile-nav"></nav>
+
+    <!-- main site gallery vs canvas -->
+    <section class="container">
+        <secetion class="gallery"></secetion>
+        <secetion class="canvas">
+            <canvas id="canvas">
+                soory your browser doesnt support our app
+            </canvas>
+        </secetion>
     </section>
+
+
+    <!-- about us secetion  -->
     <div class="about-wrapper">
         <section class="about">
             <img class="developer-img" src="img/asaf.jpg" alt="">
@@ -57,6 +67,9 @@
             </div>
         </section>
     </div>
+
+    <!-- main js script -->
+
 
     <script src="js/app.js"></script>
 </body>
