@@ -1,8 +1,9 @@
 :root{
     /* color vars */
-    --bg-main-color: #323232;
     --text-nav-color: #ffffff;
-
+    --main-color: #323232;
+    --secondary-color: #2eb398;
+    --bg-color: white;
 
      /* Fonts */
      --primary-font: Lato;
