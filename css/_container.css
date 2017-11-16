@@ -1,5 +1,5 @@
-.gallery {
-    background: lightblue;
+.container
+ {
     max-width: 1200px;
     min-height: 570px;
     max-height: 100%;    
