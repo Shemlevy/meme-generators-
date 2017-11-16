@@ -1,3 +1,11 @@
 :root{
-    --bg-main-color: background-color: #323232;
+    /* color vars */
+    --bg-main-color: #323232;
+    --text-nav-color: #ffffff;
+
+
+     /* Fonts */
+     --primary-font: Lato;
+
+
 }
