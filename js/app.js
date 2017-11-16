@@ -1,26 +1,22 @@
 'use strict'
 console.log('memegenertor')
-<<<<<<< HEAD
-//global vars
-var gImgs = [{ id: 1, url: 'img/gellary/1.jpg', keywords: ['happy', 'really happy'] },
-            { id: 2, url: 'img/gellary/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
-            { id: 2, url: 'img/gellary/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
-            { id: 2, url: 'img/gellary/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
-            { id: 2, url: 'img/gellary/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
-            { id: 2, url: 'img/gellary/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
-            { id: 2, url: 'img/gellary/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
-            { id: 2, url: 'img/gellary/1.jpg', keywords: ['angry', 'mad', 'smoke'] },
-            { id: 2, url: 'img/gellary/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
-            { id: 2, url: 'img/gellary/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
-            { id: 2, url: 'img/gellary/1.jpg', keywords: ['angry', 'mad', 'smoke'] },
-            { id: 2, url: 'img/gellary/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
-            { id: 2, url: 'img/gellary/1.jpg', keywords: ['angry', 'mad', 'smoke'] },
-];
-=======
 
-var gImgs = [{ id: 1, url: 'img/gellary/1.jpg', keywords: ['happy', 'really happy'] },
-{ id: 2, url: 'img/gellary/2.jpg', keywords: ['angry', 'mad', 'happy'] }];
->>>>>>> 22c13c1eb278d1bc55de5903a17944887cca0e6f
+//global vars
+var gImgs = [{ id: 1, url: 'img/gallery/1.jpg', keywords: ['happy', 'really happy'] },
+{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
+{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
+{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
+{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
+{ id: 2, url: 'img/gallery/1.jpg', keywords: ['angry', 'mad', 'smoke'] },
+{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
+{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
+{ id: 2, url: 'img/gallery/1.jpg', keywords: ['angry', 'mad', 'smoke'] },
+{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
+{ id: 2, url: 'img/gallery/1.jpg', keywords: ['angry', 'mad', 'smoke'] },
+{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
+{ id: 2, url: 'img/gallery/1.jpg', keywords: ['angry', 'mad', 'smoke'] },
+];
+
 
 
 var gMeme = {
@@ -34,16 +30,35 @@ var gMeme = {
 };
 
 renderImgs();
-//function render photo to gellary
+//function render photo to gallery
 function renderImgs() {
-    var elgellary = document.querySelector('.gellary');
+    var elGallery = document.querySelector('.gallery');
     var strHtml = ''
     gImgs.forEach(function (img) {
-        return strHtml += `<img class="img-gellary" src="${img.url}" alt="">`
+        console.log(img.url)
+        return strHtml += `<img onclick="drawOnCanvas(${img.id})" class="img-gallery" src="${img.url}"  alt="">`
     });
-    elgellary.innerHTML = strHtml;
+    elGallery.innerHTML = strHtml;
 }
 
+//function draw selcted img on canvas and pass user to edit screen
+function drawOnCanvas(id) {
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var img = new Image();
+    console.log(id)
+
+    img.src = `img/gallery/${id}.jpg`;
+
+    img.onload = function () {
+        ctx.drawImage(img, 0, 0, 100, 100);
+        ctx.font = "50px 'Segoe UI'";
+        ctx.fillStyle = 'white';
+        ctx.fillText("Text on Canvas", 50, 300);
+    };
+}
+
+//function get memes by key
 function getMemeBykey(key) {
     for (var i = 0; i < gImgs.length; i++) {
         var img = gImgs[i];
@@ -57,6 +72,13 @@ function getMemeBykey(key) {
     };
     return imgUrl;
 }
+
+
+
+
+
+
+
 
 
 
