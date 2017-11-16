@@ -1,6 +1,6 @@
 'use strict'
 console.log('memegenertor')
-
+//global vars
 var gImgs = [{ id: 1, url: 'img/gellary/1.jpg', keywords: ['happy','really happy'] },
              { id: 2, url: 'img/gellary/2.jpg', keywords: ['angry','mad','smoke'] }];
 
@@ -13,7 +13,11 @@ var gMeme = {
             align: 'left',
             color: 'red'
         }]
-}
+};
+
+
+//function render photo to gellary
+
 
 
 
