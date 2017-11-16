@@ -1,7 +1,10 @@
 'use strict'
 console.log('memegenertor')
 
-var gImgs = [{ id: 1, url: 'img/gellary/1.jpg', keywords: ['happy'] }]; 
+var gImgs = [{ id: 1, url: 'img/gellary/1.jpg', keywords: ['happy','really happy'] },
+             { id: 2, url: 'img/gellary/2.jpg', keywords: ['angry','mad','smoke'] }];
+
+
 var gMeme = {
     selectedImgId: 5,
     txts: [
