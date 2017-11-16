@@ -1,0 +1,27 @@
+.main-nav {
+
+}
+
+.desk-nav {
+    margin: 0 auto;
+    max-width: 1020px;
+    display: flex;
+    justify-content: space-between;
+    list-style: none; 
+    
+}
+
+.main-nav__item {
+    max-width: 1020px;
+    font-family: var( --primary-font);
+    color: var( --text-nav-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 10px;
+       
+}
+
+.main-nav__item:hover {
+   color:
+       
+}
