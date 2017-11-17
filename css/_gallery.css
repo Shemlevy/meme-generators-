@@ -12,6 +12,10 @@
     visibility: hidden;
 }
 
+.gallery-hide {
+    visibility: hidden;
+}
+
 .gallery > img {
     max-width: 180px;
     max-height: 200px;
