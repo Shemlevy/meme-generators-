@@ -1,0 +1,13 @@
+.footer p{
+    margin: 0;
+    padding-left: 35px;
+}
+
+.footer {
+    display: flex;
+    height: 43px;
+    max-width: 100%;
+    margin: 0;
+    background: #222222;
+    color: #454545;
+}

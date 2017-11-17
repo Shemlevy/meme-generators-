@@ -10,7 +10,7 @@
     <title>Meme generator</title>
 </head>
 
-<body>
+<body onload="init()">
     <!-- navigation for desktop -->
     <nav class="main-nav">
         <ul class="desk-nav">
@@ -40,7 +40,7 @@
         <secetion class="gallery"></secetion>
         <secetion class="canvas">
             <canvas id="canvas">
-                soory your browser doesnt support our app
+                Soory your browser doesnt support our app
             </canvas>
         </secetion>
     </section>
@@ -68,6 +68,49 @@
             </div>
         </section>
     </div>
+
+    <!-- contact area -->
+    <section class="contact-wrapper">
+    <div class="contact-container">  
+            <form id="contact" action="" method="post">
+            <div class="fields">
+              <h3>Get In Touch</h3>
+              <h4>In order to get in touch use the contact form below:</h4>
+              <fieldset>
+                <input placeholder="Name (Required)" type="text" tabindex="1" required autofocus>
+              </fieldset>
+              <fieldset>
+                <input placeholder="Email (Required)" type="email" tabindex="2" required>
+              </fieldset>
+            
+              <fieldset>
+                <input placeholder="Subject" type="url" tabindex="4" required>
+              </fieldset>
+              <fieldset>
+                <textarea placeholder="Write your message here..." tabindex="5" required></textarea>
+              </fieldset>
+              <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+            </form>
+            <div class="info">
+               <p class="txt">
+                    Quisque Hendrerit: purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet 
+                    volutpat libero. Nulla sed nunc et tortor luctus faucibus morbi vitae. </p> 
+                    <p class="personal-info"> 
+                        <img src="img/location.png" alt=""> Elm St. 14/05 Lost City
+                    
+                    <p class="personal-info"> 
+                        <img src="img/phone.png" alt=""> +3528 3318635
+                    </p>
+                    <p class="personal-info"> 
+                        <img src="img/mail.png" alt=""> info@gmail.com
+                    </p>
+            </div>
+        </div>
+          </div>  
+        </section>
+        <section class="footer">
+               <p>© Copyright 2013 by PSDchat</p> 
+            </section>  
 
     <!-- main js script -->
     <script src="js/app.js"></script>

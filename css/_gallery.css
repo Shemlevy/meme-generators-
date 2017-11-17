@@ -6,10 +6,12 @@
     margin-top: 150px;
     max-width: 1200px;
     justify-content: center;
+    transition: all .5s;
 }
 
-.gallery-hide {
-    visibility: hidden;
+.hide {
+    transition: all .5s;    
+    display: none;
 }
 
 

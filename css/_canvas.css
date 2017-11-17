@@ -8,3 +8,6 @@ width: 1200px;
 height: 512px;
 }
 
+.show {
+    display: block; 
+}

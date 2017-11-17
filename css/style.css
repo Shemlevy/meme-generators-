@@ -5,6 +5,8 @@
 @import '_container.css';
 @import '_gallery.css';
 @import '_canvas.css';
+@import '_contact.css';
+@import '_footer.css';
 
 
 
@@ -14,5 +16,23 @@ body {
 }
 
 .searchbox {
-    margin-bottom: 20px;
+	border:none;
+	background:#454545;
+	color:#d7fcf5;
+	margin:0 0 5px;
+	padding:10px;
+}
+
+[value="Search by keyword"] {
+    cursor:pointer;
+	border:none;
+	background:#2eb398;
+	color:#d7fcf5;
+	margin:0 0 5px;
+	padding:10px;   
+}
+
+[value="Search by keyword"]:hover {
+	background:#454545;
+	transition:background-color 0.3s ease-in-out;
 }
