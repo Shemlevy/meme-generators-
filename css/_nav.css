@@ -97,7 +97,9 @@
         list-style: none;
     } 
 
-
+    #phone-checkbox:unchecked .logo {
+        transform: rotate(360deg);
+    }
 
     #phone-checkbox:checked .logo {
         transform: rotate(360deg);
