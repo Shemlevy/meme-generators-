@@ -1,10 +1,11 @@
 #canvas {
 display: flex;
 margin: auto;
-margin-top: -650px;
- /*in the meanwhile  */
-margin-bottom: 300px;
 width: 1200px;
 height: 512px;
+    display: none;
 }
 
+.show {
+    display: block; 
+}
