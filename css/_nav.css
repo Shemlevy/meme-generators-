@@ -96,4 +96,10 @@
         margin-right: 35px;
         list-style: none;
     } 
+
+
+
+    #phone-checkbox:checked .logo {
+        transform: rotate(360deg);
+    }
  }
