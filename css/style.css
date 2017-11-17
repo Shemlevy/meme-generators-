@@ -12,3 +12,7 @@
 body {
     background: var(--bg-main-color);
 }
+
+.searchbox {
+    margin-bottom: 20px;
+}

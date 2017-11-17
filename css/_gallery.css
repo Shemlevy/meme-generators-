@@ -3,8 +3,13 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    
+    margin-top: 150px;
     max-width: 1200px;
+    justify-content: center;
+}
+
+.gallery-hide {
+    visibility: hidden;
 }
 
 
@@ -12,19 +17,17 @@
     max-width: 180px;
     max-height: 200px;
     margin: 10px;
+    margin-top: -50px;    
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     transition: all .3s;
 }
 
 .gallery > img:hover {
-    max-width: 185px;
+    max-width: 182px;
     max-height: 205px;
 }
 
-.gallery-hide {
-    visibility: hidden;
-    /* display: none; */
-}
+
 
 
 
