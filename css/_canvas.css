@@ -1,9 +1,9 @@
 #canvas {
-display: flex;
-margin: auto;
-width: 1200px;
-height: 512px;
-    display: none;
+    display: flex;
+    margin: auto;
+    width: 1200px;
+    height: 512px;
+    /* display: none; */
 }
 
 .show {
