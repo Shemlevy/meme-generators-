@@ -7,9 +7,6 @@
     max-width: 1200px;
 }
 
-.gallery-hide {
-    visibility: hidden;
-}
 
 .gallery > img {
     max-width: 180px;
@@ -23,4 +20,11 @@
     max-width: 185px;
     max-height: 205px;
 }
+
+.gallery-hide {
+    visibility: hidden;
+    /* display: none; */
+}
+
+
 
