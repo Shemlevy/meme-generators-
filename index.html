@@ -29,11 +29,34 @@
         </ul>
     </nav>
     <img src="img/logo/logo-cover.png" alt="" class="logo-cover">
-    <img src="img/logo/logo.png" alt="" class="logo">
+    <label for="phone-checkbox" href="#" class="phone-nav-btn">
+        <img src="img/logo/logo.png" alt="" class="logo">
+    </label>
+
+    <!-- search bok -->
     <input type="text" class="searchbox">
     <input type="button" value="Search by keyword" onclick="getMemeBykey(document.querySelector('.searchbox').value)">
+
+
+
     <!-- navigation for mobile -->
-    <nav class="mobile-nav"></nav>
+    <nav class="mobile-nav">
+        <input type="checkbox" id="phone-checkbox">
+        <ul class="phone-nav">
+            <li>
+                <a href="" class="phone-nav-item">portfolio</a>
+            </li>
+            <li>
+                <a href="" class="phone-nav-item">about</a>
+            </li>
+            <li>
+                <a href="" class="phone-nav-item">blog</a>
+            </li>
+            <li>
+                <a href="" class="phone-nav-item">get in touch</a>
+            </li>
+        </ul>
+    </nav>
 
     <!-- main site gallery vs canvas -->
     <section class="container">
@@ -71,46 +94,46 @@
 
     <!-- contact area -->
     <section class="contact-wrapper">
-    <div class="contact-container">  
+        <div class="contact-container">
             <form id="contact" action="" method="post">
-            <div class="fields">
-              <h3>Get In Touch</h3>
-              <h4>In order to get in touch use the contact form below:</h4>
-              <fieldset>
-                <input placeholder="Name (Required)" type="text" tabindex="1" required autofocus>
-              </fieldset>
-              <fieldset>
-                <input placeholder="Email (Required)" type="email" tabindex="2" required>
-              </fieldset>
-            
-              <fieldset>
-                <input placeholder="Subject" type="url" tabindex="4" required>
-              </fieldset>
-              <fieldset>
-                <textarea placeholder="Write your message here..." tabindex="5" required></textarea>
-              </fieldset>
-              <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                <div class="fields">
+                    <h3>Get In Touch</h3>
+                    <h4>In order to get in touch use the contact form below:</h4>
+                    <fieldset>
+                        <input placeholder="Name (Required)" type="text" tabindex="1" required autofocus>
+                    </fieldset>
+                    <fieldset>
+                        <input placeholder="Email (Required)" type="email" tabindex="2" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <input placeholder="Subject" type="url" tabindex="4" required>
+                    </fieldset>
+                    <fieldset>
+                        <textarea placeholder="Write your message here..." tabindex="5" required></textarea>
+                    </fieldset>
+                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
             </form>
             <div class="info">
-               <p class="txt">
-                    Quisque Hendrerit: purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet 
-                    volutpat libero. Nulla sed nunc et tortor luctus faucibus morbi vitae. </p> 
-                    <p class="personal-info"> 
-                        <img src="img/location.png" alt=""> Elm St. 14/05 Lost City
-                    
-                    <p class="personal-info"> 
+                <p class="txt">
+                    Quisque Hendrerit: purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero.
+                    Nulla sed nunc et tortor luctus faucibus morbi vitae. </p>
+                <p class="personal-info">
+                    <img src="img/location.png" alt=""> Elm St. 14/05 Lost City
+
+                    <p class="personal-info">
                         <img src="img/phone.png" alt=""> +3528 3318635
                     </p>
-                    <p class="personal-info"> 
+                    <p class="personal-info">
                         <img src="img/mail.png" alt=""> info@gmail.com
                     </p>
             </div>
+            </div>
         </div>
-          </div>  
-        </section>
-        <section class="footer">
-               <p>© Copyright 2013 by PSDchat</p> 
-            </section>  
+    </section>
+    <section class="footer">
+        <p>© Copyright 2013 by PSDchat</p>
+    </section>
 
     <!-- main js script -->
     <script src="js/app.js"></script>

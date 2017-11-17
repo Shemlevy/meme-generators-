@@ -4,13 +4,11 @@
     flex-wrap: wrap;
     margin: 0 auto;
     margin-top: 150px;
-    max-width: 1200px;
+    max-width: 1000px;
     justify-content: center;
-    transition: all .5s;
 }
 
 .hide {
-    transition: all .5s;    
     display: none;
 }
 
@@ -23,13 +21,25 @@
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     transition: all .3s;
 }
+.gallery > img:nth-child(4) {
+    margin-right: 1.5%;
+  
+}
 
 .gallery > img:hover {
-    max-width: 182px;
-    max-height: 205px;
+   
 }
 
 
+ /* Tablet */
+ @media (max-width: 1100px) {
+    .gallery {
+        max-width: 1000px;
+    }
+    .gallery > img:nth-child(4) {
+        margin-right: 20%;
+    }
+ }
 
 
 
