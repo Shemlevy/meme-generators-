@@ -23,7 +23,7 @@ body {
 	padding:10px;
 }
 
-[value="Search by keyword"] {
+[value="Search"] {
     cursor:pointer;
 	border:none;
 	background:#2eb398;
@@ -32,7 +32,7 @@ body {
 	padding:10px;   
 }
 
-[value="Search by keyword"]:hover {
+[value="Search]:hover {
 	background:#454545;
 	transition:background-color 0.3s ease-in-out;
 }

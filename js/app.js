@@ -2,10 +2,10 @@
 console.log('memegenertor')
 
 //global vars
-var gImgs = [{ id: 1, url: 'img/gallery/1.jpg', keywords: ['sad', 'really happy'] },
-{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
-{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
-{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
+var gImgs = [{ id: 1, url: 'img/gallery/1.jpg', keywords: ['sad', 'really', 'happy'] },
+{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'crazy', 'ball'] },
+{ id: 2, url: 'img/gallery/2.jpg', keywords: ['ball', 'table', 'green'] },
+{ id: 2, url: 'img/gallery/2.jpg', keywords: ['weed', 'mad', 'smoke'] },
 { id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
 { id: 2, url: 'img/gallery/1.jpg', keywords: ['angry', 'mad', 'smoke'] },
 { id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
@@ -65,7 +65,8 @@ function drawOnCanvas(id) {
     img.src = `img/gallery/${id}.jpg`;
 
     img.onload = function () {
-        ctx.drawImage(img, 100, 0, 100, 100);
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(img, 0, 0, 150, 150);
         ctx.font = "50px 'Segoe UI'";
         ctx.fillStyle = 'white';
         ctx.fillText("Text on Canvas", 50, 300);
@@ -74,23 +75,38 @@ function drawOnCanvas(id) {
 
 //function get memes by key
 function getMemeBykey(key) {
-
     // if (e.keyCode == 13) {   support in enter activation, itsnt workin now but we will fix
-
     var imgUrl = [];
     for (var i = 0; i < gImgs.length; i++) {
         var img = gImgs[i];
         var x = img.keywords.filter(function (keyword) {
             if (keyword === key) {
                 imgUrl.push(img)
+                renderImgs(imgUrl);
+                document.querySelector('.searchbox').value = '';
+                setPopularKey(key)
+            } else {
+                document.querySelector('.searchbox').value = 'No result';
+                setTimeout(() => {
+                    document.querySelector('.searchbox').value = '';
+                }, 500);
             }
         });
     };
-    // console.log(imgUrl)
-    renderImgs(imgUrl);
-    document.querySelector('.searchbox').value ='';
 }
 
+
+function setPopularKey(key) {
+    var elKeyWordsInput = document.querySelector('.keywords-text');
+    if (elKeyWordsInput.innerHTML.indexOf(key) !== -1) {
+        // fontSize += 5;
+        document.querySelector(`.${key}`).style.color = 'red'
+        
+    } else {
+        elKeyWordsInput.innerHTML += `<span class="${key}">${key}&nbsp</span>`
+        
+    }
+}
 
 
 
