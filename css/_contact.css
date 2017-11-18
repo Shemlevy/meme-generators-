@@ -21,7 +21,7 @@
 
 #contact {
     display: flex;
-    flex-direction: row ;
+    flex-flow: row wrap ;
     align-items: flex-start;
     justify-content: space-around;
     max-width: 1200px;;

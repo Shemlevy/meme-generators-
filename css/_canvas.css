@@ -11,3 +11,7 @@ height: 512px;
 .show {
     display: block; 
 }
+
+#canvas {
+    display: flex;
+}

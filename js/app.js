@@ -75,8 +75,6 @@ function drawOnCanvas(id) {
 //function get memes by key
 function getMemeBykey(key) {
 
-    // if (e.keyCode == 13) {   support in enter activation, itsnt workin now but we will fix
-
     var imgUrl = [];
     for (var i = 0; i < gImgs.length; i++) {
         var img = gImgs[i];
@@ -91,7 +89,13 @@ function getMemeBykey(key) {
     document.querySelector('.searchbox').value ='';
 }
 
-
+document.addEventListener('keydown',function(event){
+    if(event.keyCode == 13) {
+        if(document.activeElement.className == 'searchbox') {
+            document.getElementById('btnSearch').click()
+        }
+    }
+})
 
 
 
