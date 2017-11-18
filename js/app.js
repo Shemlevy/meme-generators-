@@ -49,27 +49,22 @@ function renderImgs(array) {
 }
 
 //function draw selcted img on canvas and pass user to edit screen
-function drawOnCanvas(id) {
+function drawOnCanvas(id, url) {
     document.querySelector('.gallery').classList.add('hide');    //// changed to class hide cause its more reuseable
     var elCanvas = document.getElementById('canvas');
 
     // i added this line because now the canvas catch a space under the gallery
     //somting go worng with that, we will fix it later
     // elCanvas.classList.add('show');    
-
-
     var ctx = canvas.getContext('2d');
     var img = new Image();
-    // console.log(id)
-
-    img.src = `img/gallery/${id}.jpg`;
-
-    img.onload = function () {
-        ctx.imageSmoothingEnabled = false;
-        ctx.drawImage(img, 0, 0, 150, 150);
-        ctx.font = "50px 'ariel'";
-        ctx.fillStyle = 'white';
-        ctx.fillText("larisa", 50, 300);
+    (typeof(id) === 'number')? img.src = `img/gallery/${id}.jpg`:img.src = url;
+        img.onload = function () {
+            ctx.imageSmoothingEnabled = false;
+            ctx.drawImage(img, 0, 0, 150, 150);
+            // ctx.font = "50px 'ariel'";
+            // ctx.fillStyle = 'white';
+            // ctx.fillText("puki", 50, 300);
     };
 }
 
@@ -88,6 +83,8 @@ function getMemeBykey(key) {
                 document.querySelector('.searchbox').value = '';
                 setPopularKey(key, firstMatch)
             } else {
+                // have a bug when finel keyword doesnt match to key no result print
+                //eventough that there is some result/
                 document.querySelector('.searchbox').value = 'No result';
                 setTimeout(() => {
                     document.querySelector('.searchbox').value = '';
@@ -98,19 +95,25 @@ function getMemeBykey(key) {
 }
 
 
-function setPopularKey(key ,i) {
+function setPopularKey(key, i) {
     if (i === 1) {
         var elKeyWordsInput = document.querySelector('.keywords-text');
         if (elKeyWordsInput.innerHTML.indexOf(key) !== -1) {
             // fontSize += 5;
+            var elKeyWord = document.querySelector(`.${key}`);
 
-            document.querySelector(`.${key}`).style.fontSize += `${10}px`
+            var currSize = window.getComputedStyle(elKeyWord, null).getPropertyValue('font-size');
+            var fontSize = parseFloat(currSize);
+
+
+            // now you have a proper float for the font size (yes, it can be a float, not just an integer)
+            elKeyWord.style.fontSize = (fontSize + 1) + 'px';
+
         } else {
             elKeyWordsInput.innerHTML += `<span class="${key}">${key}&nbsp</span>`
         }
     }
 }
-
 
 
 
