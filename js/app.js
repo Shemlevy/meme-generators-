@@ -67,9 +67,9 @@ function drawOnCanvas(id) {
     img.onload = function () {
         ctx.imageSmoothingEnabled = false;
         ctx.drawImage(img, 0, 0, 150, 150);
-        ctx.font = "50px 'Segoe UI'";
+        ctx.font = "50px 'ariel'";
         ctx.fillStyle = 'white';
-        ctx.fillText("Text on Canvas", 50, 300);
+        ctx.fillText("larisa", 50, 300);
     };
 }
 
@@ -77,14 +77,16 @@ function drawOnCanvas(id) {
 function getMemeBykey(key) {
     // if (e.keyCode == 13) {   support in enter activation, itsnt workin now but we will fix
     var imgUrl = [];
+    var firstMatch = 0;
     for (var i = 0; i < gImgs.length; i++) {
         var img = gImgs[i];
         var x = img.keywords.filter(function (keyword) {
             if (keyword === key) {
+                firstMatch += 1
                 imgUrl.push(img)
                 renderImgs(imgUrl);
                 document.querySelector('.searchbox').value = '';
-                setPopularKey(key)
+                setPopularKey(key, firstMatch)
             } else {
                 document.querySelector('.searchbox').value = 'No result';
                 setTimeout(() => {
@@ -96,15 +98,16 @@ function getMemeBykey(key) {
 }
 
 
-function setPopularKey(key) {
-    var elKeyWordsInput = document.querySelector('.keywords-text');
-    if (elKeyWordsInput.innerHTML.indexOf(key) !== -1) {
-        // fontSize += 5;
-        document.querySelector(`.${key}`).style.color = 'red'
-        
-    } else {
-        elKeyWordsInput.innerHTML += `<span class="${key}">${key}&nbsp</span>`
-        
+function setPopularKey(key ,i) {
+    if (i === 1) {
+        var elKeyWordsInput = document.querySelector('.keywords-text');
+        if (elKeyWordsInput.innerHTML.indexOf(key) !== -1) {
+            // fontSize += 5;
+
+            document.querySelector(`.${key}`).style.fontSize += `${10}px`
+        } else {
+            elKeyWordsInput.innerHTML += `<span class="${key}">${key}&nbsp</span>`
+        }
     }
 }
 
