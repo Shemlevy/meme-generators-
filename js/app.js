@@ -49,7 +49,7 @@ function renderImgs(array) {
 }
 
 //function draw selcted img on canvas and pass user to edit screen
-function drawOnCanvas(id, url) {
+function drawOnCanvas(id) {
     document.querySelector('.gallery').classList.add('hide');    //// changed to class hide cause its more reuseable
     var elCanvas = document.getElementById('canvas');
 
@@ -58,7 +58,7 @@ function drawOnCanvas(id, url) {
     // elCanvas.classList.add('show');    
     var ctx = canvas.getContext('2d');
     var img = new Image();
-    (typeof(id) === 'number')? img.src = `img/gallery/${id}.jpg`:img.src = url;
+    (typeof(id) === 'number')? img.src = `img/gallery/${id}.jpg`:img.src = id;
         img.onload = function () {
             ctx.imageSmoothingEnabled = false;
             ctx.drawImage(img, 0, 0, 150, 150);
