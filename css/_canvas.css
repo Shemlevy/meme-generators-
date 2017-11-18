@@ -1,14 +1,18 @@
+
+.canvas {
+   max-height: 400px;
+   max-width: 400px;
+}
+
 #canvas {
-display: flex;
-margin: auto;
-/* margin-top: -650px; */
- /*in the meanwhile  */
-margin-bottom: 300px;
-width: 1200px;
-height: 512px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
 }
 
 .show {
+    display: flex;
     display: block; 
 }
 

@@ -37,6 +37,14 @@
     <input type="text" class="searchbox">
     <input id="btnSearch" type="button" value="Search by keyword" onclick="getMemeBykey(document.querySelector('.searchbox').value)">
 
+    <!-- keywords section -->
+    <section class="keywords">
+        <!-- popular key words -->
+        <div class="keywords-text"></div>
+        <!-- search bok -->
+        <input type="text" class="searchbox">
+        <input type="button" value="Search" onclick="getMemeBykey(document.querySelector('.searchbox').value)">
+    </section>
 
 
     <!-- navigation for mobile -->
@@ -61,82 +69,83 @@
     <!-- main site gallery vs canvas -->
     <section class="container">
         <secetion class="gallery"></secetion>
-        <secetion class="canvas">
-            <canvas id="canvas">
-                Soory your browser doesnt support our app
-            </canvas>
+        <!-- <secetion class="canvas"> -->
+        <canvas id="canvas">
+            Soory your browser doesnt support our app
+        </canvas>
         </secetion>
-    </section>
+        <!-- </section> -->
 
 
-    <!-- about us secetion  -->
-    <div class="about-wrapper">
-        <section class="about">
-            <img class="developer-img" src="img/asaf.jpg" alt="">
-            <div class="info-txt">
-                <h1 class="developer-name"> Asaf Bello </h1>
-                <h2 class="job-info">Junior developer</h2>
-                <p class="developer-info">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor, nibh at sagittis tristique, enim magna pretium
-                    augue, eget consectetur sem dui non urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-                    porttitor, nibh at sagittis tristique, enim magna pretium augue, eget consectetur sem dui non urna.
-                </p>
-                <div class="social-icons">
-                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                    <i class="fa fa-google-plus-square" aria-hidden="true"></i>
-                    <i class="fa fa-pinterest-square" aria-hidden="true"></i>
-                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+        <!-- about us secetion  -->
+        <div class="about-wrapper">
+            <section class="about">
+                <img class="developer-img" src="img/asaf.jpg" alt="">
+                <div class="info-txt">
+                    <h1 class="developer-name"> Asaf Bello </h1>
+                    <h2 class="job-info">Junior developer</h2>
+                    <p class="developer-info">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor, nibh at sagittis tristique, enim magna pretium
+                        augue, eget consectetur sem dui non urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Mauris porttitor, nibh at sagittis tristique, enim magna pretium augue, eget consectetur sem dui
+                        non urna.
+                    </p>
+                    <div class="social-icons">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                        <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                        <i class="fa fa-pinterest-square" aria-hidden="true"></i>
+                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- contact area -->
+        <section class="contact-wrapper">
+            <div class="contact-container">
+                <form id="contact" action="" method="post">
+                    <div class="fields">
+                        <h3>Get In Touch</h3>
+                        <h4>In order to get in touch use the contact form below:</h4>
+                        <fieldset>
+                            <input placeholder="Name (Required)" type="text" tabindex="1" required autofocus>
+                        </fieldset>
+                        <fieldset>
+                            <input placeholder="Email (Required)" type="email" tabindex="2" required>
+                        </fieldset>
+
+                        <fieldset>
+                            <input placeholder="Subject" type="url" tabindex="4" required>
+                        </fieldset>
+                        <fieldset>
+                            <textarea placeholder="Write your message here..." tabindex="5" required></textarea>
+                        </fieldset>
+                        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                </form>
+                <div class="info">
+                    <p class="txt">
+                        Quisque Hendrerit: purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero.
+                        Nulla sed nunc et tortor luctus faucibus morbi vitae. </p>
+                    <p class="personal-info">
+                        <img src="img/location.png" alt=""> Elm St. 14/05 Lost City
+
+                        <p class="personal-info">
+                            <img src="img/phone.png" alt=""> +3528 3318635
+                        </p>
+                        <p class="personal-info">
+                            <img src="img/mail.png" alt=""> info@gmail.com
+                        </p>
+                </div>
                 </div>
             </div>
         </section>
-    </div>
+        <section class="footer">
+            <p>© Copyright 2013 by PSDchat</p>
+        </section>
 
-    <!-- contact area -->
-    <section class="contact-wrapper">
-        <div class="contact-container">
-            <form id="contact" action="" method="post">
-                <div class="fields">
-                    <h3>Get In Touch</h3>
-                    <h4>In order to get in touch use the contact form below:</h4>
-                    <fieldset>
-                        <input placeholder="Name (Required)" type="text" tabindex="1" required autofocus>
-                    </fieldset>
-                    <fieldset>
-                        <input placeholder="Email (Required)" type="email" tabindex="2" required>
-                    </fieldset>
-
-                    <fieldset>
-                        <input placeholder="Subject" type="url" tabindex="4" required>
-                    </fieldset>
-                    <fieldset>
-                        <textarea placeholder="Write your message here..." tabindex="5" required></textarea>
-                    </fieldset>
-                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-            </form>
-            <div class="info">
-                <p class="txt">
-                    Quisque Hendrerit: purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero.
-                    Nulla sed nunc et tortor luctus faucibus morbi vitae. </p>
-                <p class="personal-info">
-                    <img src="img/location.png" alt=""> Elm St. 14/05 Lost City
-
-                    <p class="personal-info">
-                        <img src="img/phone.png" alt=""> +3528 3318635
-                    </p>
-                    <p class="personal-info">
-                        <img src="img/mail.png" alt=""> info@gmail.com
-                    </p>
-            </div>
-            </div>
-        </div>
-    </section>
-    <section class="footer">
-        <p>© Copyright 2013 by PSDchat</p>
-    </section>
-
-    <!-- main js script -->
-    <script src="js/app.js"></script>
+        <!-- main js script -->
+        <script src="js/app.js"></script>
 </body>
 
 </html>
