@@ -22,13 +22,8 @@ var gMeme = {
     selectedImg: null,
     txts: [
         {
-<<<<<<< HEAD
-            line: 'I never eat Falafel', 
-            size: 20,
-=======
             line: 'I never eat Falafel',
             size: 3,
->>>>>>> 2d36ed88f10c53063e253deb50155a31c32174ba
             align: 'left',
             color: 'red',
             font: 'Lato',
@@ -91,10 +86,6 @@ function drawOnCanvas(id) {
         ctx.imageSmoothingEnabled = false;
         gMeme.selectedImg = img;
         ctx.drawImage(img, 0, 0, 500, 500);
-<<<<<<< HEAD
-
-=======
->>>>>>> 2d36ed88f10c53063e253deb50155a31c32174ba
     };
 
 }
@@ -150,23 +141,6 @@ function setPopularKey(key, i) {
 
 //// draw text on canvas
 function createTxtOnCancas() {
-<<<<<<< HEAD
-
-    var txt = document.getElementById('inputText').value;
-    var ctx = gElCanvas.getContext("2d");
-    // ctx.clearRect ( 0 , 0 , gElCanvas.width ,  gElCanvas.height );
-    ctx.font = '48px serif';
-    ctx.fillStyle = "#fff";
-    gMeme.line = ctx.fillText(txt, 10, 50);
-
-    drawOnCanvas(gMeme.selectedImgId);
-    // document.getElementById('inputText').value = '';
-}
-
-//icrease font size
-function increaseFontSize() {
-
-=======
     var txt = document.getElementById('inputText1').value;
     var txt2 = document.getElementById('inputText2').value;
 
@@ -185,7 +159,6 @@ function increaseFontSize() {
     ctx.fillStyle = gMeme.txts[0].color;
     ctx.fillText(txt, gMeme.txts[0].positionx, gMeme.txts[0].positiony);
     ctx.fillText(txt2, gMeme.txts[0].positionx, gMeme.txts[0].positiony + 410);
->>>>>>> 2d36ed88f10c53063e253deb50155a31c32174ba
 }
 
 //change font size
@@ -196,30 +169,6 @@ function ChangeFontSize(op) {
 
 //// Download canvas
 
-<<<<<<< HEAD
-
-var link = document.createElement('a');
-link.classList.add('fa')
-link.classList.add('fa-download')
-link.addEventListener('click', function (ev) {
-    link.href = canvas.toDataURL();
-    link.download = "mypainting.png";
-}, false);
-document.body.appendChild(link);
-
-
-
-
-///// draw input on the canvas
-
-// function drawTopInput() {
-//     document.querySelector('.input-holder').classList.add('.input-holder-show')
-//    var input = document.querySelector('.add-line').value;
-//    document.querySelector('.input-txt').value = input;
-//    document.querySelector('.add-line').value = '';
-// }
-
-=======
 // var link = document.createElement('a');
 // link.classList.add('fa')
 // link.classList.add('fa-download')
@@ -228,7 +177,6 @@ document.body.appendChild(link);
 //     link.download = "mypainting.png";
 // }, false);
 // document.body.appendChild(link);
->>>>>>> 2d36ed88f10c53063e253deb50155a31c32174ba
 
 //function for download meme
 function downloadImg(elLink) {
