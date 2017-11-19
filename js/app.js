@@ -84,11 +84,6 @@ function renderImgs(array) {
 //function draw selcted img on canvas and pass user to edit screen
 function drawOnCanvas(id) {
     if (id === 'url') {
-<<<<<<< HEAD
-        // console.log(id)
-        // console.log(' i am inside ther if')
-=======
->>>>>>> 459f4c190d060672f72ac0b4b4630dabb366dc7a
         var url = document.querySelector('.img-url').value
         if (url === '') return;
         if (!(url.match(/\.(jpeg|jpg|gif|png)$/) != null)) {
@@ -124,7 +119,7 @@ function getMemeBykey(key) {
     var filteredImg = gImgs.filter(function (img) {
         var matchKey = false;
         var match = img.keywords.filter(function (keyword) {
-            setPopularKey(key)
+            // setPopularKey(key)
             return (keyword.includes(key));
         })
         if (match.length) return true;
@@ -193,13 +188,6 @@ function getShadow(ctx) {
         ctx.shadowOffsetY = 0;
         ctx.shadowOffsetX = 0;
     }
-<<<<<<< HEAD
-
-    ctx.fillStyle = gMeme.txts[0].color;
-    ctx.fillText(txt, gMeme.txts[0].positionx , gMeme.txts[0].positiony);
-    ctx.fillText(txt2, gMeme.txts[0].positionBottomX, gMeme.txts[0].positionBottomY);
-=======
->>>>>>> 459f4c190d060672f72ac0b4b4630dabb366dc7a
 }
 
 
@@ -237,7 +225,6 @@ function addShadow() {
     createTxtOnCancas()
 }
 
-<<<<<<< HEAD
 function alignTextTop   (direction) {
     if(direction === 'left') {
         gMeme.txts[0].positionx = 10;
@@ -263,11 +250,6 @@ function alignTextTop   (direction) {
 //         createTxtOnCancas()
 //     }
 // }
-=======
-
-
-function AlignText() {
->>>>>>> 459f4c190d060672f72ac0b4b4630dabb366dc7a
 
 
 
