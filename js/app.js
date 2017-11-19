@@ -4,6 +4,7 @@ function elad (){
     event.preventDefault()
     console.log(event.target.value)
 }
+
 //global vars
 var gImgs = [{ id: 1, url: 'img/gallery/1.jpg', keywords: ['sad', 'really', 'happy'] },
 { id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'crazy', 'ball'] },
