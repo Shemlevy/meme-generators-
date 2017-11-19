@@ -20,19 +20,33 @@ var gImgs = [{ id: 1, url: 'img/gallery/1.jpg', keywords: ['sad', 'really', 'hap
 { id: 13, url: 'img/gallery/13.jpg', keywords: ['foo', 'fii', 'smoke'] },
 ];
 
+var gActiveInput = 0;
+
 var gMeme = {
     selectedImgId: 5,
     selectedImg: null,
     txts: [
         {
             line: 'I never eat Falafel',
-            size: 3,
+            size: 1.5,
             align: 'left',
             color: 'red',
             font: 'Lato',
             shadow: false,
             positionx: 10,
-            positiony: 50
+            positiony: 50,
+            positionBottomX: 10,
+            positionBottomY: 460,
+            
+        }, {
+            line: 'I never eat Falafel',
+            size: 1.5,
+            align: 'left',
+            color: 'red',
+            font: 'Lato',
+            shadow: false,
+            positionBottomX: 10,
+            positionBottomY: 460,
         }]
 };
 
@@ -68,8 +82,8 @@ function renderImgs(array) {
 //function draw selcted img on canvas and pass user to edit screen
 function drawOnCanvas(id) {
     if (id === 'url') {
-        console.log(id)
-        console.log(' i am inside ther if')
+        // console.log(id)
+        // console.log(' i am inside ther if')
         var url = document.querySelector('.img-url').value
         if (url === '') return;
         if (!(url.match(/\.(jpeg|jpg|gif|png)$/) != null)) {
@@ -156,7 +170,7 @@ function createTxtOnCancas() {
     //CR :  more practice solution.
     var txt = document.getElementById('inputText1').value;
     var txt2 = document.getElementById('inputText2').value;
-
+    // console.log(activeLine)
     var ctx = gElCanvas.getContext("2d");
     ctx.drawImage(gMeme.selectedImg, 0, 0, 500, 500);
     ctx.font = gMeme.txts[0].size + 'em ' + gMeme.txts[0].font;
@@ -171,13 +185,13 @@ function createTxtOnCancas() {
     }
 
     ctx.fillStyle = gMeme.txts[0].color;
-    ctx.fillText(txt, gMeme.txts[0].positionx, gMeme.txts[0].positiony);
-    ctx.fillText(txt2, gMeme.txts[0].positionx, gMeme.txts[0].positiony + 410);
+    ctx.fillText(txt, gMeme.txts[0].positionx , gMeme.txts[0].positiony);
+    ctx.fillText(txt2, gMeme.txts[0].positionBottomX, gMeme.txts[0].positionBottomY);
 }
 
 //change font size
 function ChangeFontSize(op) {
-    (op === '+') ? gMeme.txts[0].size += 1 : gMeme.txts[0].size -= 1
+    (op === '+') ? gMeme.txts[0].size += 0.5 : gMeme.txts[0].size -= 0.5
     createTxtOnCancas()
 }
 
@@ -210,10 +224,33 @@ function addShadow() {
     createTxtOnCancas()
 }
 
-function AlignText() {
-
-
+function alignTextTop   (direction) {
+    if(direction === 'left') {
+        gMeme.txts[0].positionx = 10;
+        createTxtOnCancas();
+    } else if(direction === 'center') {
+        gMeme.txts[0].positionx = 100;
+        createTxtOnCancas();
+    } else {
+        gMeme.txts[0].positionx = 400;
+        createTxtOnCancas()
+    }
 }
+
+// function alignTextBottom (direction) {
+//     if(direction === 'left') {
+//         gMeme.txts[0].positionBottomX = 10;
+//         createTxtOnCancas();
+//     } else if(direction === 'center') {
+//         gMeme.txts[0].positionBottomX = 100;
+//         createTxtOnCancas();
+//     } else {
+//         gMeme.txts[0].positionBottomX = 400;
+//         createTxtOnCancas()
+//     }
+// }
+
+
 
 
 

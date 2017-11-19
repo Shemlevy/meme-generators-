@@ -36,8 +36,8 @@
 
     <!-- editor -->
     <secetion class="editor">
-        <input type="text" class="add-line" id="inputText1" oninput="createTxtOnCancas()">
-        <input type="text" class="add-line" id="inputText2" oninput="createTxtOnCancas()">
+        <input type="text" class="add-line" id="inputText1" oninput="createTxtOnCancas()" onfocus="gActiveInput = 0">
+        <input type="text" class="add-line" id="inputText2" oninput="createTxtOnCancas()"  onfocus="gActiveInput = 1">
         <input type="button" value="+" class="btn" onclick="ChangeFontSize('+')">
         <input type="button" value="-" class="btn" onclick="ChangeFontSize('-')">
         <input type="color"  onchange="changeColor(value)">
@@ -45,7 +45,10 @@
         <input type="button" value="Font" class="btn" onclick="ChangeFont()">
         <select id = 'select' class="btn" onChange = "return fontChange();">
         </select>
-        <input type="button" value="Align" class="btn" onclick="AlignText()">
+        <input type="button" value="Align Center" class="btn" onclick="alignTextTop('center',0)">
+        <input type="button" value="Align Right" class="btn" onclick="alignTextTop('right',0)">
+        <input type="button" value="Align Left" class="btn" onclick="alignTextTop('left',0)">
+        
         
         
     </secetion>
@@ -112,13 +115,13 @@
                         Mauris porttitor, nibh at sagittis tristique, enim magna pretium augue, eget consectetur sem dui
                         non urna.
                     </p>
-                    <div class="social-icons">
-                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                        <i class="fa fa-google-plus-square" aria-hidden="true"></i>
-                        <i class="fa fa-pinterest-square" aria-hidden="true"></i>
-                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                    </div>
+                </div>
+                <div class="social-icons">
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                    <i class="fa fa-pinterest-square" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
                 </div>
             </section>
         </div>
@@ -144,6 +147,7 @@
                             <textarea placeholder="Write your message here..." tabindex="5" required></textarea>
                         </fieldset>
                         <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                    </div>
                 </form>
                 <div class="info">
                     <p class="txt">
