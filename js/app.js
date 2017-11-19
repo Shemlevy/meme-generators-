@@ -201,10 +201,7 @@ function addShadow() {
     createTxtOnCancas()
 }
 
-function ChangeFont() {
-    gMeme.txts[0].font = 'David';
-    createTxtOnCancas()    
-}
+
 
 
 
