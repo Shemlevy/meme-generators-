@@ -1,0 +1,44 @@
+
+
+.editor {
+    background: var(--main-color);
+    border-radius: 8px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: space-around;
+    max-width: 200px;
+}
+
+.editor input {
+    margin: 15px;
+}
+
+.add-line {
+    width: 100%;
+    border:none;
+    border-bottom: 1px solid  white;
+	background:#45454500;
+	color:#d7fcf5;
+    text-align: center;
+    font-size: .8em;
+}
+
+.btn-size {
+    width: 2em;
+    height: 2em;
+    font-size: 2em;
+    line-height: 0;
+}
+
+@media (max-width: 740px) {
+    .editor {
+        flex-flow: row wrap;
+         max-width: 95vw;
+         margin-top: 10px;  
+    }
+    .btn { 
+      height: 100%;
+      align-self: center;
+    }
+}

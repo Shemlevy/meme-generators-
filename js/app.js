@@ -31,7 +31,7 @@ var gMeme = {
             line: 'I never eat Falafel',
             size: 1.5,
             align: 'left',
-            color: 'red',
+            color: 'white',
             font: 'Lato',
             shadow: false,
             positionx: 10,
@@ -129,7 +129,7 @@ function getMemeBykey(key) {
         document.querySelector('.searchbox').value = 'No result';
         setTimeout(() => {
             document.querySelector('.searchbox').value = '';
-        }, 500);
+        }, 1000);
     }
     renderImgs(filteredImg)
 }

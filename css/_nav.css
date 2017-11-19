@@ -32,6 +32,10 @@
 .logo:hover {
     transform: rotate(360deg);
 }
+.logo:focus {
+    transform: rotate(360deg);
+}
+
 
 .logo-cover {
     display: flex;

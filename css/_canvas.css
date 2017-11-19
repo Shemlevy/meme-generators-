@@ -1,7 +1,8 @@
 
 
 #canvas {
-    margin: 0 auto;
+    margin: 0;
+    border-radius: 8px;
 }
 
 .show {
@@ -9,4 +10,11 @@
     display: block; 
 }
 
+
+@media (max-width: 740px) {
+    #canvas {
+        width: 95vw;
+    }
+    
+}
 
