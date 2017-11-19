@@ -34,8 +34,8 @@
     </label>
 
     <!-- search bok -->
-    <input type="text" class="searchbox">
-    <input id="btnSearch" type="button" value="Search by keyword" onclick="getMemeBykey(document.querySelector('.searchbox').value)">
+    <input type="text" class="add-line" id="inputText">
+    <input class="btn-add-line" type="button" value="Add top line" onclick="createTxtOnCancas()">
 
     <!-- keywords section -->
     <section class="keywords">
@@ -43,7 +43,11 @@
         <div class="keywords-text"></div>
         <!-- search bok -->
         <input type="text" class="searchbox">
-        <input type="button" value="Search" onclick="getMemeBykey(document.querySelector('.searchbox').value)">
+        <input id="btnSearch" type="button" value="Search" onclick="getMemeBykey(document.querySelector('.searchbox').value)">
+        <button class="increase-fs" onclick="increaseFontSize()">+</button>   
+        
+        
+        
     </section>
 
 
@@ -73,9 +77,12 @@
         <canvas id="canvas">
             Soory your browser doesnt support our app
         </canvas>
+        <!-- <div class="input-holder">
+             <input type="text" class="input-txt">
+       </div> -->
         </secetion>
         <!-- </section> -->
-
+        
 
         <!-- about us secetion  -->
         <div class="about-wrapper">

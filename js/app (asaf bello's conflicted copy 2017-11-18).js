@@ -13,7 +13,7 @@ var gImgs = [{ id: 1, url: 'img/gallery/1.jpg', keywords: ['sad', 'really', 'hap
 { id: 2, url: 'img/gallery/1.jpg', keywords: ['angry', 'mad', 'smoke'] },
 { id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
 { id: 2, url: 'img/gallery/1.jpg', keywords: ['angry', 'mad', 'smoke'] },
-{ id: 11, url: 'img/gallery/11.jpg', keywords: ['angry', 'mad', 'smoke'] },
+{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'mad', 'smoke'] },
 { id: 12, url: 'img/gallery/12.jpg', keywords: ['sad', 'mad', 'smoke'] },
 ];
 
@@ -52,12 +52,11 @@ function renderImgs(array) {
 function drawOnCanvas(id) {
     // document.querySelector('.input-holder').classList.add('input-holder-show');
     document.querySelector('.gallery').classList.add('hide');    //// changed to class hide cause its more reuseable
-    //var elCanvas = document.getElementById('canvas');
+    var elCanvas = document.getElementById('canvas');
     // i added this line because now the canvas catch a space under the gallery
     //somting go worng with that, we will fix it later
     // elCanvas.classList.add('show');    
-    canvas.width  = 500;
-    canvas.height = 500;
+
 
     var ctx = canvas.getContext('2d');
     var img = new Image();
@@ -67,11 +66,10 @@ function drawOnCanvas(id) {
 
     img.onload = function () {
         ctx.imageSmoothingEnabled = false;
-        ctx.drawImage(img, 0, 0, 500, 500);
-
+        ctx.drawImage(img, 0, 0, 150, 150);
         ctx.font = "50px 'Segoe UI'";
-        //ctx.fillStyle = 'white';
-        //ctx.fillText("Text on Canvas", 50, 300);
+        ctx.fillStyle = 'white';
+        ctx.fillText("Text on Canvas", 50, 300);
     };
 }
 
@@ -116,47 +114,66 @@ function setPopularKey(key) {
     }
 }
 
-//// draw text on canvas
-function createTxtOnCancas() {
-    var txt = document.getElementById('inputText').value;
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
-    ctx.font = '48px serif';
-    ctx.fillStyle = "#fff";
-    
-    ctx.fillText(txt, 10, 50);
-    document.getElementById('inputText').value = '';
-}
-
-//icrease font size
-function increaseFontSize() {
-  
-}
-
-
-//// Download canvas
-
-
-var link = document.createElement('a');
-link.classList.add('fa')
-link.classList.add('fa-download')
-link.addEventListener('click', function(ev) {
-link.href = canvas.toDataURL();
-link.download = "mypainting.png";
-}, false);
-document.body.appendChild(link);
-
-
-
-
 ///// draw input on the canvas
 
 // function drawTopInput() {
-//     document.querySelector('.input-holder').classList.add('.input-holder-show')
-//    var input = document.querySelector('.add-line').value;
+//    var input = document.getElementById('inputText').value;
 //    document.querySelector('.input-txt').value = input;
 //    document.querySelector('.add-line').value = '';
 // }
+
+
+// function increaseFontSize() {
+//     var txt = document.querySelector('.input-txt');
+//     var currSize = txt.style.fontSize 
+//     console.log('size', txt.style.fontSize)
+// }
+
+
+
+
+// drow top line in the img
+
+// function createTxtOnCancas() {
+//     var txt = document.getElementById('inputText').value;
+//     var canvas = document.getElementById("canvas");
+//     var ctx = canvas.getContext("2d");
+//     ctx.font = '30px serif';
+//     ctx.fillText(txt, 10, 50);
+//     document.getElementById('inputText').value = '';
+// }
+
+
+// ctx.font = '48px serif';
+// ctx.fillText('txt', 10, 50);
+// }draw();
+
+var PIXEL_RATIO = (function () {
+    var ctx = document.createElement("canvas").getContext("2d"),
+        dpr = window.devicePixelRatio || 1,
+        bsr = ctx.webkitBackingStorePixelRatio ||
+              ctx.mozBackingStorePixelRatio ||
+              ctx.msBackingStorePixelRatio ||
+              ctx.oBackingStorePixelRatio ||
+              ctx.backingStorePixelRatio || 1;
+
+    return dpr / bsr;
+})();
+
+
+createHiDPICanvas = function(w, h, ratio) {
+    if (!ratio) { ratio = PIXEL_RATIO; }
+    var can = document.createElement("canvas");
+    can.width = w * ratio;
+    can.height = h * ratio;
+    can.style.width = w + "px";
+    can.style.height = h + "px";
+    can.getContext("2d").setTransform(ratio, 0, 0, ratio, 0, 0);
+    return can;
+}
+
+
+
 
 
 
