@@ -4,27 +4,37 @@ console.log('memegenertor')
 //global vars
 var gImgs = [{ id: 1, url: 'img/gallery/1.jpg', keywords: ['sad', 'really', 'happy'] },
 { id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'crazy', 'ball'] },
-{ id: 2, url: 'img/gallery/2.jpg', keywords: ['ball', 'table', 'green'] },
-{ id: 2, url: 'img/gallery/2.jpg', keywords: ['puki', 'muki', 'google'] },
-{ id: 2, url: 'img/gallery/2.jpg', keywords: ['10', '5', '$'] },
-{ id: 2, url: 'img/gallery/1.jpg', keywords: ['money', 'big', 'small'] },
-{ id: 2, url: 'img/gallery/2.jpg', keywords: ['phone', 'tv', 'baby'] },
-{ id: 2, url: 'img/gallery/2.jpg', keywords: ['arror', 'water', 'life'] },
-{ id: 2, url: 'img/gallery/1.jpg', keywords: ['muki', 'mad', 'smoke'] },
-{ id: 2, url: 'img/gallery/2.jpg', keywords: ['6', '7', 'smoke'] },
+{ id: 3, url: 'img/gallery/3.jpg', keywords: ['ball', 'table', 'green'] },
+{ id: 4, url: 'img/gallery/4.jpg', keywords: ['puki', 'muki', 'google'] },
+{ id: 5, url: 'img/gallery/5.jpg', keywords: ['10', '5', '$'] },
+{ id: 6, url: 'img/gallery/6.jpg', keywords: ['money', 'big', 'small'] },
+{ id: 7, url: 'img/gallery/7.jpg', keywords: ['phone', 'tv', 'baby'] },
+{ id: 8, url: 'img/gallery/8.jpg', keywords: ['arror', 'water', 'life'] },
+{ id: 9, url: 'img/gallery/9.jpg', keywords: ['muki', 'mad', 'smoke'] },
+{ id: 10, url: 'img/gallery/10.jpg', keywords: ['6', '7', 'smoke'] },
 { id: 11, url: 'img/gallery/11.jpg', keywords: ['angry', 'mad', 'smoke'] },
 { id: 12, url: 'img/gallery/12.jpg', keywords: ['sad', 'mad', 'smoke'] },
-{ id: 12, url: 'img/gallery/12.jpg', keywords: ['foo', 'fii', 'smoke'] },
+{ id: 13, url: 'img/gallery/13.jpg', keywords: ['foo', 'fii', 'smoke'] },
 ];
 
 var gMeme = {
     selectedImgId: 5,
+    selectedImg: null,
     txts: [
         {
+<<<<<<< HEAD
             line: 'I never eat Falafel', 
             size: 20,
+=======
+            line: 'I never eat Falafel',
+            size: 3,
+>>>>>>> 2d36ed88f10c53063e253deb50155a31c32174ba
             align: 'left',
-            color: 'red'
+            color: 'red',
+            font: 'Lato',
+            shadow: false,
+            positionx: 10,
+            positiony: 50
         }]
 };
 
@@ -79,15 +89,18 @@ function drawOnCanvas(id) {
 
     img.onload = function () {
         ctx.imageSmoothingEnabled = false;
+        gMeme.selectedImg = img;
         ctx.drawImage(img, 0, 0, 500, 500);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2d36ed88f10c53063e253deb50155a31c32174ba
     };
 
 }
 
 //function get memes by key
 function getMemeBykey(key) {
-    // if (e.keyCode == 13) {   support in enter activation, itsnt workin now but we will fix
     if (!gElCanvas.classList.contains('hide')) gElCanvas.classList.toggle('hide');
     var imgUrl = [];
     var firstMatch = 0;
@@ -137,6 +150,7 @@ function setPopularKey(key, i) {
 
 //// draw text on canvas
 function createTxtOnCancas() {
+<<<<<<< HEAD
 
     var txt = document.getElementById('inputText').value;
     var ctx = gElCanvas.getContext("2d");
@@ -152,11 +166,37 @@ function createTxtOnCancas() {
 //icrease font size
 function increaseFontSize() {
 
+=======
+    var txt = document.getElementById('inputText1').value;
+    var txt2 = document.getElementById('inputText2').value;
+
+    var ctx = gElCanvas.getContext("2d");
+    ctx.drawImage(gMeme.selectedImg, 0, 0, 500, 500);
+    ctx.font = gMeme.txts[0].size + 'em ' + gMeme.txts[0].font;
+    if (gMeme.txts[0].shadow) {
+        ctx.shadowColor = 'black';
+        ctx.shadowOffsetY = 5;
+        ctx.shadowOffsetX = 5;
+    } else {
+        ctx.shadowOffsetY = 0;
+        ctx.shadowOffsetX = 0;
+    }
+
+    ctx.fillStyle = gMeme.txts[0].color;
+    ctx.fillText(txt, gMeme.txts[0].positionx, gMeme.txts[0].positiony);
+    ctx.fillText(txt2, gMeme.txts[0].positionx, gMeme.txts[0].positiony + 410);
+>>>>>>> 2d36ed88f10c53063e253deb50155a31c32174ba
 }
 
+//change font size
+function ChangeFontSize(op) {
+    (op === '+') ? gMeme.txts[0].size += 1 : gMeme.txts[0].size -= 1
+    createTxtOnCancas()
+}
 
 //// Download canvas
 
+<<<<<<< HEAD
 
 var link = document.createElement('a');
 link.classList.add('fa')
@@ -179,6 +219,16 @@ document.body.appendChild(link);
 //    document.querySelector('.add-line').value = '';
 // }
 
+=======
+// var link = document.createElement('a');
+// link.classList.add('fa')
+// link.classList.add('fa-download')
+// link.addEventListener('click', function (ev) {
+//     link.href = canvas.toDataURL();
+//     link.download = "mypainting.png";
+// }, false);
+// document.body.appendChild(link);
+>>>>>>> 2d36ed88f10c53063e253deb50155a31c32174ba
 
 //function for download meme
 function downloadImg(elLink) {
@@ -188,8 +238,20 @@ function downloadImg(elLink) {
 }
 
 
+function changeColor(newColor) {
+    gMeme.txts[0].color = newColor;
+    createTxtOnCancas()
+}
+
+function addShadow() {
+    gMeme.txts[0].shadow = !gMeme.txts[0].shadow;
+    createTxtOnCancas()
+}
+
+function AlignText() {
 
 
+}
 
 
 
