@@ -1,6 +1,9 @@
 'use strict'
 console.log('memegenertor')
-
+function elad (){
+    event.preventDefault()
+    console.log(event.target.value)
+}
 //global vars
 var gImgs = [{ id: 1, url: 'img/gallery/1.jpg', keywords: ['sad', 'really', 'happy'] },
 { id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'crazy', 'ball'] },
@@ -47,6 +50,7 @@ function init() {
 }
 
 //function render photo to gallery
+//CR : All the editor staff under one section
 function renderImgs(array) {
     gElDownBtn.classList.add('hide');
     gElCanvas.classList.add('hide');
@@ -64,6 +68,8 @@ function renderImgs(array) {
 //function draw selcted img on canvas and pass user to edit screen
 function drawOnCanvas(id) {
     if (id === 'url') {
+        console.log(id)
+        console.log(' i am inside ther if')
         var url = document.querySelector('.img-url').value
         if (url === '') return;
         if (!(url.match(/\.(jpeg|jpg|gif|png)$/) != null)) {
@@ -71,6 +77,8 @@ function drawOnCanvas(id) {
             return;
         }
     }
+    
+    // CR : hide and show into functions.
     gElGallery.classList.add('hide');
     gElCanvas.classList.toggle('hide');
     gElDownBtn.classList.toggle('hide');
@@ -81,6 +89,7 @@ function drawOnCanvas(id) {
     var ctx = canvas.getContext('2d');
     var img = new Image();
     (typeof (id) === 'number') ? img.src = `img/gallery/${id}.jpg` : img.src = id;
+    // CR: img.src =  (typeof (id) === 'number') ? `img/gallery/${id}.jpg` :  id;
 
     img.onload = function () {
         ctx.imageSmoothingEnabled = false;
@@ -97,13 +106,15 @@ function getMemeBykey(key) {
     var firstMatch = 0;
     for (var i = 0; i < gImgs.length; i++) {
         var img = gImgs[i];
+        // forEach 
+        // CR : not apropaite use of filter(). 
         var x = img.keywords.filter(function (keyword) {
             if (keyword === key) {
                 firstMatch += 1
                 imgUrl.push(img)
                 renderImgs(imgUrl);
                 document.querySelector('.searchbox').value = '';
-                setPopularKey(key, firstMatch)
+                setPopularKey(key, firstMatch)  
             } else {
                 // have a bug when finel keyword doesnt match to key no result print
                 //eventough that there is some result/
@@ -116,13 +127,13 @@ function getMemeBykey(key) {
     };
 }
 
-document.addEventListener('keydown', function (event) {
-    if (event.keyCode == 13) {
-        if (document.activeElement.className == 'searchbox text-input') {
-            document.getElementById('btnSearch').click()
-        }
-    }
-})
+// document.addEventListener('keydown', function (event) {
+//     if (event.keyCode == 13) {
+//         if (document.activeElement.className == 'searchbox text-input') {
+//             document.getElementById('btnSearch').click()
+//         }
+//     }
+// })
 
 //function set new popular keywords - The more they are disguised, the greater they are!
 function setPopularKey(key, i) {
@@ -140,13 +151,16 @@ function setPopularKey(key, i) {
 }
 
 //// draw text on canvas
+//CR: gMeme.texts soppused to have an array with objects of text. each object of his content and all its style properties 
 function createTxtOnCancas() {
+    //CR :  more practice solution.
     var txt = document.getElementById('inputText1').value;
     var txt2 = document.getElementById('inputText2').value;
 
     var ctx = gElCanvas.getContext("2d");
     ctx.drawImage(gMeme.selectedImg, 0, 0, 500, 500);
     ctx.font = gMeme.txts[0].size + 'em ' + gMeme.txts[0].font;
+    // CR : exract into other function to save this important function clean. 
     if (gMeme.txts[0].shadow) {
         ctx.shadowColor = 'black';
         ctx.shadowOffsetY = 5;
