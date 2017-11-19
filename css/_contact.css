@@ -59,10 +59,14 @@ p.txt  {
 .fields {
   display: flex;
   flex-flow: column wrap;
+<<<<<<< HEAD
   /* width: 780px; */
   width: 780px;
   max-width: 780px;
   min-width: 400px;
+=======
+  max-width: 780px;
+>>>>>>> 459f4c190d060672f72ac0b4b4630dabb366dc7a
   height: 445px;
   position: relative;
   right: 50px;

@@ -91,9 +91,17 @@ body {
     outline:none;
 }
 .text-input:focus {
-    outline:none;
+	outline:none;
 }
 
 .btn-color {
 	background: rgba(255, 255, 255, 0);
+}
+
+.searchbox {
+	text-align: center;
+}
+.searchbox:focus {
+	text-align: left;
+	
 }
