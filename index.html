@@ -78,8 +78,8 @@
         </canvas>
         <!-- editor -->
         <secetion class="editor">
-            <input type="text" class="add-line" id="inputText1" oninput="createTxtOnCancas()">
-            <input type="text" class="add-line" id="inputText2" oninput="createTxtOnCancas()">
+            <input type="text" class="add-line" id="inputText1" onfocus="onFocus(0)" oninput="createTxtOnCancas()">
+            <input type="text" class="add-line" id="inputText2" onfocus="onFocus(1)" oninput="createTxtOnCancas()">
             <input type="button" value="+" class="btn" onclick="ChangeFontSize('+')">
             <input type="button" value="-" class="btn" onclick="ChangeFontSize('-')">
             <input type="color" onchange="changeColor(value)">

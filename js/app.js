@@ -1,33 +1,34 @@
 'use strict'
-console.log('memegenertor')
-function elad() {
-    event.preventDefault()
-    console.log(event.target.value)
-}
+// console.log('memegenertor')
+// function elad() {
+//     event.preventDefault()
+//     console.log(event.target.value)
+// }
 
 //global vars
-var gImgs = [{ id: 1, url: 'img/gallery/1.jpg', keywords: ['sad', 'really', 'happy'] },
-{ id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'crazy', 'ball'] },
-{ id: 3, url: 'img/gallery/3.jpg', keywords: ['ball', 'table', 'green'] },
-{ id: 4, url: 'img/gallery/4.jpg', keywords: ['puki', 'muki', 'google'] },
-{ id: 5, url: 'img/gallery/5.jpg', keywords: ['10', '5', '$'] },
-{ id: 6, url: 'img/gallery/6.jpg', keywords: ['money', 'big', 'small'] },
-{ id: 7, url: 'img/gallery/7.jpg', keywords: ['phone', 'tv', 'baby'] },
-{ id: 8, url: 'img/gallery/8.jpg', keywords: ['arror', 'water', 'life'] },
-{ id: 9, url: 'img/gallery/9.jpg', keywords: ['muki', 'mad', 'smoke'] },
-{ id: 10, url: 'img/gallery/10.jpg', keywords: ['6', '7', 'smoke'] },
-{ id: 11, url: 'img/gallery/11.jpg', keywords: ['angry', 'mad', 'smoke'] },
-{ id: 12, url: 'img/gallery/12.jpg', keywords: ['sad', 'mad', 'smoke'] },
-{ id: 13, url: 'img/gallery/13.jpg', keywords: ['foo', 'fii', 'smoke'] },
+var gImgs = [
+    { id: 1, url: 'img/gallery/1.jpg', keywords: ['sad', 'really', 'happy'] },
+    { id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'crazy', 'ball'] },
+    { id: 3, url: 'img/gallery/3.jpg', keywords: ['ball', 'table', 'green'] },
+    { id: 4, url: 'img/gallery/4.jpg', keywords: ['puki', 'muki', 'google'] },
+    { id: 5, url: 'img/gallery/5.jpg', keywords: ['10', '5', '$'] },
+    { id: 6, url: 'img/gallery/6.jpg', keywords: ['money', 'big', 'small'] },
+    { id: 7, url: 'img/gallery/7.jpg', keywords: ['phone', 'tv', 'baby'] },
+    { id: 8, url: 'img/gallery/8.jpg', keywords: ['arror', 'water', 'life'] },
+    { id: 9, url: 'img/gallery/9.jpg', keywords: ['muki', 'mad', 'smoke'] },
+    { id: 10, url: 'img/gallery/10.jpg', keywords: ['6', '7', 'smoke'] },
+    { id: 11, url: 'img/gallery/11.jpg', keywords: ['angry', 'mad', 'smoke'] },
+    { id: 12, url: 'img/gallery/12.jpg', keywords: ['sad', 'mad', 'smoke'] },
+    { id: 13, url: 'img/gallery/13.jpg', keywords: ['foo', 'fii', 'smoke'] },
 ];
 
 var gActiveInput = 0;
+var ctx = null;
 
 var gMeme = {
     selectedImgId: 5,
     selectedImg: null,
-    txts: [
-        {
+    txts: [{
             line: 'I never eat Falafel',
             size: 1.5,
             align: 'left',
@@ -35,10 +36,7 @@ var gMeme = {
             font: 'Lato',
             shadow: false,
             positionx: 10,
-            positiony: 50,
-            positionBottomX: 10,
-            positionBottomY: 460,
-            
+            positiony: 50,      
         }, {
             line: 'I never eat Falafel',
             size: 1.5,
@@ -46,8 +44,8 @@ var gMeme = {
             color: 'red',
             font: 'Lato',
             shadow: false,
-            positionBottomX: 10,
-            positionBottomY: 460,
+            positionx: 10,
+            positiony: 460,
         }]
 };
 
@@ -78,9 +76,6 @@ function renderImgs(array) {
 }
 
 
-
-
-
 //function draw selcted img on canvas and pass user to edit screen
 function drawOnCanvas(id) {
     if (id === 'url') {
@@ -95,7 +90,7 @@ function drawOnCanvas(id) {
     gMeme.selectedImgId = id;
     canvas.width = 500;
     canvas.height = 500;
-    var ctx = canvas.getContext('2d');
+    ctx = canvas.getContext('2d');
     var img = new Image();
     img.src = (typeof (id) === 'number') ? `img/gallery/${id}.jpg` : url;
     img.onload = function () {
@@ -103,7 +98,6 @@ function drawOnCanvas(id) {
         gMeme.selectedImg = img;
         ctx.drawImage(img, 0, 0, 500, 500);
     };
-
 }
 
 //toggle between the screens gallery vs canvas editor
@@ -159,28 +153,31 @@ function setPopularKey() {
     // var currSize = window.getComputedStyle(elKeyWord, null).getPropertyValue('font-size');
     // var fontSize = parseFloat(currSize);
     // elKeyWord.style.fontSize = (fontSize + 2) + 'px';
+}
 
+function onFocus(inputNum){
+    gActiveInput = inputNum;
 }
 
 //// draw text on canvas
 //CR: gMeme.texts soppused to have an array with objects of text. each object of his content and all its style properties 
 function createTxtOnCancas() {
     //CR :  more practice solution.
-    var txt = document.getElementById('inputText1').value;
-    var txt2 = document.getElementById('inputText2').value;
     // console.log(activeLine)
     var ctx = gElCanvas.getContext("2d");
     ctx.drawImage(gMeme.selectedImg, 0, 0, 500, 500);
-    ctx.font = gMeme.txts[0].size + 'em ' + gMeme.txts[0].font;
-    getShadow(ctx)
-    ctx.fillStyle = gMeme.txts[0].color;
-    ctx.fillText(txt, gMeme.txts[0].positionx, gMeme.txts[0].positiony);
-    ctx.fillText(txt2, gMeme.txts[0].positionx, gMeme.txts[0].positiony + 410);
+    for (var i=0; i < gMeme.txts.length; i++) {
+        getShadow(ctx, i)
+        ctx.font = gMeme.txts[i].size + 'em ' + gMeme.txts[i].font;
+        ctx.fillStyle = gMeme.txts[i].color;
+        var txt = document.getElementById('inputText'+(i+1).toString()).value;
+        ctx.fillText(txt, gMeme.txts[i].positionx, gMeme.txts[i].positiony);
+    }
 }
 
 //function toggle shadow for text on canvas
-function getShadow(ctx) {
-    if (gMeme.txts[0].shadow) {
+function getShadow(ctx, inputNum) {
+    if (gMeme.txts[inputNum].shadow) {
         ctx.shadowColor = 'black';
         ctx.shadowOffsetY = 3;
         ctx.shadowOffsetX = 3;
@@ -190,11 +187,9 @@ function getShadow(ctx) {
     }
 }
 
-
-
 //change font size
 function ChangeFontSize(op) {
-    (op === '+') ? gMeme.txts[0].size += 0.5 : gMeme.txts[0].size -= 0.5
+    (op === '+') ? gMeme.txts[gActiveInput].size += 0.5 : gMeme.txts[gActiveInput].size -= 0.5
     createTxtOnCancas()
 }
 
@@ -216,26 +211,25 @@ function downloadImg(elLink) {
 }
 
 function changeColor(newColor) {
-    gMeme.txts[0].color = newColor;
+    gMeme.txts[gActiveInput].color = newColor;
     createTxtOnCancas()
 }
 
 function addShadow() {
-    gMeme.txts[0].shadow = !gMeme.txts[0].shadow;
+    debugger;
+    gMeme.txts[gActiveInput].shadow = !gMeme.txts[gActiveInput].shadow;
     createTxtOnCancas()
 }
 
-function alignTextTop   (direction) {
-    if(direction === 'left') {
-        gMeme.txts[0].positionx = 10;
-        createTxtOnCancas();
+function alignTextTop(direction) {
+    if (direction === 'left') {
+        gMeme.txts[gActiveInput].positionx = 10;
     } else if(direction === 'center') {
-        gMeme.txts[0].positionx = 100;
-        createTxtOnCancas();
+        gMeme.txts[gActiveInput].positionx = 130;
     } else {
-        gMeme.txts[0].positionx = 400;
-        createTxtOnCancas()
+        gMeme.txts[gActiveInput].positionx = 400;
     }
+    createTxtOnCancas()
 }
 
 // function alignTextBottom (direction) {
