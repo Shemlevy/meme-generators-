@@ -1,6 +1,6 @@
 'use strict'
 console.log('memegenertor')
-function elad (){
+function elad() {
     event.preventDefault()
     console.log(event.target.value)
 }
@@ -39,38 +39,37 @@ var gMeme = {
 
 
 var gElCanvas = document.getElementById('canvas');
-var gElDownBtn = document.querySelector('.download-btn');
+var gElEditor = document.querySelector('.editor');
 var gElGallery = document.querySelector('.gallery');
 
 
 //when page load init active renderImgs
 function init() {
-
     renderImgs(gImgs);
-
 }
 
 //function render photo to gallery
 //CR : All the editor staff under one section
 function renderImgs(array) {
-    gElDownBtn.classList.add('hide');
+    gElEditor.classList.add('hide');
     gElCanvas.classList.add('hide');
     if (document.querySelector('.gallery').classList.contains('hide')) {
         document.querySelector('.gallery').classList.toggle('hide');
     };
     var strHtml = ''
     array.forEach(function (img) {
-        // console.log(img.url)
-        return strHtml += `<img onclick="drawOnCanvas(${img.id})" class="img-gallery" src="${img.url}"  alt="">`
+        return strHtml += `<img onclick="drawOnCanvas(${img.id})" class="img-gallery" src="${img.url}" alt="">`
     });
     gElGallery.innerHTML = strHtml;
 }
 
+
+
+
+
 //function draw selcted img on canvas and pass user to edit screen
 function drawOnCanvas(id) {
     if (id === 'url') {
-        console.log(id)
-        console.log(' i am inside ther if')
         var url = document.querySelector('.img-url').value
         if (url === '') return;
         if (!(url.match(/\.(jpeg|jpg|gif|png)$/) != null)) {
@@ -78,20 +77,13 @@ function drawOnCanvas(id) {
             return;
         }
     }
-    
-    // CR : hide and show into functions.
-    gElGallery.classList.add('hide');
-    gElCanvas.classList.toggle('hide');
-    gElDownBtn.classList.toggle('hide');
-
+    toggleScreens()
     gMeme.selectedImgId = id;
     canvas.width = 500;
     canvas.height = 500;
     var ctx = canvas.getContext('2d');
     var img = new Image();
-    (typeof (id) === 'number') ? img.src = `img/gallery/${id}.jpg` : img.src = id;
-    // CR: img.src =  (typeof (id) === 'number') ? `img/gallery/${id}.jpg` :  id;
-
+    img.src = (typeof (id) === 'number') ? `img/gallery/${id}.jpg` : url;
     img.onload = function () {
         ctx.imageSmoothingEnabled = false;
         gMeme.selectedImg = img;
@@ -100,41 +92,54 @@ function drawOnCanvas(id) {
 
 }
 
+//toggle between the screens gallery vs canvas editor
+function toggleScreens() {
+    gElGallery.classList.add('hide');
+    gElCanvas.classList.toggle('hide');
+    gElEditor.classList.toggle('hide');
+}
+
 //function get memes by key
 function getMemeBykey(key) {
     if (!gElCanvas.classList.contains('hide')) gElCanvas.classList.toggle('hide');
-    var imgUrl = [];
     var firstMatch = 0;
-    for (var i = 0; i < gImgs.length; i++) {
-        var img = gImgs[i];
-        // forEach 
-        // CR : not apropaite use of filter(). 
-        var x = img.keywords.filter(function (keyword) {
-            if (keyword === key) {
-                firstMatch += 1
-                imgUrl.push(img)
-                renderImgs(imgUrl);
-                document.querySelector('.searchbox').value = '';
-                setPopularKey(key, firstMatch)  
-            } else {
-                // have a bug when finel keyword doesnt match to key no result print
-                //eventough that there is some result/
-                document.querySelector('.searchbox').value = 'No result';
-                setTimeout(() => {
-                    document.querySelector('.searchbox').value = '';
-                }, 500);
-            }
-        });
-    };
+    var filteredImg = gImgs.filter(function (img) {
+        var matchKey = false;
+        var i = 0;
+        var match = img.keywords.filter(function (keyword) {
+            if (keyword === key) i += 1 
+            return (keyword.includes(key));
+            console.log(i)
+        })
+        if (match.length) return true;
+        return false;
+    })
+    if (!(filteredImg.length)) {
+        document.querySelector('.searchbox').value = 'No result';
+        setTimeout(() => {
+            document.querySelector('.searchbox').value = '';
+        }, 500);
+    }
+    renderImgs(filteredImg)
+
+
+
+
+
+
+    //     firstMatch += 1
+    //     imgUrl.push(img)
+    //     renderImgs(imgUrl);
+    //     document.querySelector('.searchbox').value = '';
+    //     setPopularKey(key, firstMatch)
+    // } else {
+    //     // have a bug when finel keyword doesnt match to key no result print
+    //     //eventough that there is some result/
+
+
+
 }
 
-// document.addEventListener('keydown', function (event) {
-//     if (event.keyCode == 13) {
-//         if (document.activeElement.className == 'searchbox text-input') {
-//             document.getElementById('btnSearch').click()
-//         }
-//     }
-// })
 
 //function set new popular keywords - The more they are disguised, the greater they are!
 function setPopularKey(key, i) {
@@ -210,6 +215,8 @@ function addShadow() {
     gMeme.txts[0].shadow = !gMeme.txts[0].shadow;
     createTxtOnCancas()
 }
+
+
 
 function AlignText() {
 

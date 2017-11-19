@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/style.css" />
-    <link href='https://fonts.googleapis.com/css?family=Montez|Lobster|Josefin+Sans|Shadows+Into+Light|Pacifico|Amatic+SC:700|Orbitron:400,900|Rokkitt|Righteous|Dancing+Script:700|Bangers|Chewy|Sigmar+One|Architects+Daughter|Abril+Fatface|Covered+By+Your+Grace|Kaushan+Script|Gloria+Hallelujah|Satisfy|Lobster+Two:700|Comfortaa:700|Cinzel|Courgette' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montez|Lobster|Josefin+Sans|Shadows+Into+Light|Pacifico|Amatic+SC:700|Orbitron:400,900|Rokkitt|Righteous|Dancing+Script:700|Bangers|Chewy|Sigmar+One|Architects+Daughter|Abril+Fatface|Covered+By+Your+Grace|Kaushan+Script|Gloria+Hallelujah|Satisfy|Lobster+Two:700|Comfortaa:700|Cinzel|Courgette'
+        rel='stylesheet' type='text/css'>
     <title>Meme generator</title>
 </head>
 
@@ -34,29 +35,15 @@
         <img src="img/logo/logo.png" alt="" class="logo">
     </label>
 
-    <!-- editor -->
-    <secetion class="editor">
-        <input type="text" class="add-line" id="inputText1" oninput="createTxtOnCancas()">
-        <input type="text" class="add-line" id="inputText2" oninput="createTxtOnCancas()">
-        <input type="button" value="+" class="btn" onclick="ChangeFontSize('+')">
-        <input type="button" value="-" class="btn" onclick="ChangeFontSize('-')">
-        <input type="color"  onchange="changeColor(value)">
-        <input type="button" value="shadow" class="btn" onclick="addShadow()">
-        <input type="button" value="Font" class="btn" onclick="ChangeFont()">
-        <select id = 'select' class="btn" onChange = "return fontChange();">
-        </select>
-        <input type="button" value="Align" class="btn" onclick="AlignText()">
-        
-        
-    </secetion>
+
 
     <!-- keywords section -->
     <section class="keywords">
         <!-- popular key words -->
         <div class="keywords-text"></div>
         <!-- search bok -->
-        <input type="text" class="searchbox text-input" >
-        <input id="btnSearch" type="button" value="Search" class="btn-search btn" onclick="getMemeBykey(document.querySelector('.searchbox').value)">
+        <input type="text" value="Search in Gallery" class="searchbox text-input" on-release="[value='Search in Gallery']" onfocus="[value='']" onkeyup="getMemeBykey(value)">
+        <input id="btnSearch" type="button" value="Search" class="btn-search btn" onkeyup="getMemeBykey(document.querySelector('.searchbox').value)">
         <input type="url" value="Paste the image URL here" onfocus="this.value='';" class="img-url text-input">
         <input type="button" value="Upload an Image" class="btn upload-btn" onclick="drawOnCanvas('url')">
         <input type="button" value="Back To Gallery" class="btn" onclick="renderImgs(gImgs)">
@@ -83,92 +70,101 @@
     </nav>
 
     <!-- main site gallery vs canvas -->
-    <section class="container">
-        <secetion class="gallery"></secetion>
-        <a class="download-btn btn" href="#" id="download" onclick="downloadImg(this)">
-            Download as image
-        </a>
+    <secetion class="container">
+        <secetion class="gallery">
+        </secetion>
         <!-- <secetion class="canvas"> -->
         <canvas id="canvas">
             Soory your browser doesnt support our app
         </canvas>
-        <!-- <div class="input-holder">
-             <input type="text" class="input-txt">
-       </div> -->
+        <!-- editor -->
+        <secetion class="editor">
+            <input type="text" class="add-line" id="inputText1" oninput="createTxtOnCancas()">
+            <input type="text" class="add-line" id="inputText2" oninput="createTxtOnCancas()">
+            <input type="button" value="+" class="btn" onclick="ChangeFontSize('+')">
+            <input type="button" value="-" class="btn" onclick="ChangeFontSize('-')">
+            <input type="color" onchange="changeColor(value)">
+            <input type="button" value="shadow" class="btn" onclick="addShadow()">
+            <input type="button" value="Font" class="btn" onclick="ChangeFont()">
+            <select id='select' class="btn" onChange="return fontChange();"></select>
+            <input type="button" value="Align" class="btn" onclick="AlignText()">
+            <a class="download-btn btn" href="#" id="download" onclick="downloadImg(this)">
+                Download as image
+            </a>
         </secetion>
-        <!-- </section> -->
+    </secetion>
 
 
-        <!-- about us secetion  -->
-        <div class="about-wrapper">
-            <section class="about">
-                <img class="developer-img" src="img/asaf.jpg" alt="">
-                <div class="info-txt">
-                    <h1 class="developer-name"> Asaf Bello </h1>
-                    <h2 class="job-info">Junior developer</h2>
-                    <p class="developer-info">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor, nibh at sagittis tristique, enim magna pretium
-                        augue, eget consectetur sem dui non urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Mauris porttitor, nibh at sagittis tristique, enim magna pretium augue, eget consectetur sem dui
-                        non urna.
-                    </p>
-                    <div class="social-icons">
-                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                        <i class="fa fa-google-plus-square" aria-hidden="true"></i>
-                        <i class="fa fa-pinterest-square" aria-hidden="true"></i>
-                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </section>
-        </div>
 
-        <!-- contact area -->
-        <section class="contact-wrapper">
-            <div class="contact-container">
-                <form id="contact" action="" method="post">
-                    <div class="fields">
-                        <h3>Get In Touch</h3>
-                        <h4>In order to get in touch use the contact form below:</h4>
-                        <fieldset>
-                            <input placeholder="Name (Required)" type="text" tabindex="1" required autofocus>
-                        </fieldset>
-                        <fieldset>
-                            <input placeholder="Email (Required)" type="email" tabindex="2" required>
-                        </fieldset>
-
-                        <fieldset>
-                            <input placeholder="Subject" type="url" tabindex="4" required>
-                        </fieldset>
-                        <fieldset>
-                            <textarea placeholder="Write your message here..." tabindex="5" required></textarea>
-                        </fieldset>
-                        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-                </form>
-                <div class="info">
-                    <p class="txt">
-                        Quisque Hendrerit: purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero.
-                        Nulla sed nunc et tortor luctus faucibus morbi vitae. </p>
-                    <p class="personal-info">
-                        <img src="img/location.png" alt=""> Elm St. 14/05 Lost City
-
-                        <p class="personal-info">
-                            <img src="img/phone.png" alt=""> +3528 3318635
-                        </p>
-                        <p class="personal-info">
-                            <img src="img/mail.png" alt=""> info@gmail.com
-                        </p>
-                </div>
+    <!-- about us secetion  -->
+    <div class="about-wrapper">
+        <section class="about">
+            <img class="developer-img" src="img/asaf.jpg" alt="">
+            <div class="info-txt">
+                <h1 class="developer-name"> Asaf Bello </h1>
+                <h2 class="job-info">Junior developer</h2>
+                <p class="developer-info">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor, nibh at sagittis tristique, enim magna pretium
+                    augue, eget consectetur sem dui non urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                    porttitor, nibh at sagittis tristique, enim magna pretium augue, eget consectetur sem dui non urna.
+                </p>
+                <div class="social-icons">
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                    <i class="fa fa-pinterest-square" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
                 </div>
             </div>
         </section>
-        <section class="footer">
-            <p>© Copyright 2013 by PSDchat</p>
-        </section>
+    </div>
 
-        <!-- main js script -->
-        <script src="js/app.js"></script>
-        <script src="js/fontSelector.js"></script>
+    <!-- contact area -->
+    <section class="contact-wrapper">
+        <div class="contact-container">
+            <form id="contact" action="" method="post">
+                <div class="fields">
+                    <h3>Get In Touch</h3>
+                    <h4>In order to get in touch use the contact form below:</h4>
+                    <fieldset>
+                        <input placeholder="Name (Required)" type="text" tabindex="1" required autofocus>
+                    </fieldset>
+                    <fieldset>
+                        <input placeholder="Email (Required)" type="email" tabindex="2" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <input placeholder="Subject" type="url" tabindex="4" required>
+                    </fieldset>
+                    <fieldset>
+                        <textarea placeholder="Write your message here..." tabindex="5" required></textarea>
+                    </fieldset>
+                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+            </form>
+            <div class="info">
+                <p class="txt">
+                    Quisque Hendrerit: purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero.
+                    Nulla sed nunc et tortor luctus faucibus morbi vitae. </p>
+                <p class="personal-info">
+                    <img src="img/location.png" alt=""> Elm St. 14/05 Lost City
+
+                    <p class="personal-info">
+                        <img src="img/phone.png" alt=""> +3528 3318635
+                    </p>
+                    <p class="personal-info">
+                        <img src="img/mail.png" alt=""> info@gmail.com
+                    </p>
+            </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <p>© Copyright 2013 by PSDchat</p>
+    </section>
+
+    <!-- main js script -->
+    <script src="js/app.js"></script>
+    <script src="js/fontSelector.js"></script>
 </body>
 
 </html>
