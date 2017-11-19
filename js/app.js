@@ -21,7 +21,8 @@ var gMeme = {
     selectedImgId: 5,
     txts: [
         {
-            line: 'I never eat Falafel', size: 20,
+            line: 'I never eat Falafel', 
+            size: 20,
             align: 'left',
             color: 'red'
         }]
@@ -65,24 +66,21 @@ function drawOnCanvas(id) {
             return;
         }
     }
-    gElGallery.classList.add('hide');    //// changed to class hide cause its more reuseable
+    gElGallery.classList.add('hide');
     gElCanvas.classList.toggle('hide');
     gElDownBtn.classList.toggle('hide');
-    canvas.width  = 500;
+
+    gMeme.selectedImgId = id;
+    canvas.width = 500;
     canvas.height = 500;
-    // i added this line because now the canvas catch a space under the gallery
-    //somting go worng with that, we will fix it later
-    // gElCanvas.classList.add('show');    
     var ctx = canvas.getContext('2d');
     var img = new Image();
     (typeof (id) === 'number') ? img.src = `img/gallery/${id}.jpg` : img.src = id;
+
     img.onload = function () {
         ctx.imageSmoothingEnabled = false;
         ctx.drawImage(img, 0, 0, 500, 500);
 
-        ctx.font = "50px 'Segoe UI'";
-        //ctx.fillStyle = 'white';
-        //ctx.fillText("Text on Canvas", 50, 300);
     };
 
 }
@@ -114,9 +112,9 @@ function getMemeBykey(key) {
     };
 }
 
-document.addEventListener('keydown',function(event){
-    if(event.keyCode == 13) {
-        if(document.activeElement.className == 'searchbox text-input') {
+document.addEventListener('keydown', function (event) {
+    if (event.keyCode == 13) {
+        if (document.activeElement.className == 'searchbox text-input') {
             document.getElementById('btnSearch').click()
         }
     }
@@ -139,19 +137,21 @@ function setPopularKey(key, i) {
 
 //// draw text on canvas
 function createTxtOnCancas() {
+
     var txt = document.getElementById('inputText').value;
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
+    var ctx = gElCanvas.getContext("2d");
+    // ctx.clearRect ( 0 , 0 , gElCanvas.width ,  gElCanvas.height );
     ctx.font = '48px serif';
     ctx.fillStyle = "#fff";
-    
-    ctx.fillText(txt, 10, 50);
-    document.getElementById('inputText').value = '';
+    gMeme.line = ctx.fillText(txt, 10, 50);
+
+    drawOnCanvas(gMeme.selectedImgId);
+    // document.getElementById('inputText').value = '';
 }
 
 //icrease font size
 function increaseFontSize() {
-  
+
 }
 
 
@@ -161,9 +161,9 @@ function increaseFontSize() {
 var link = document.createElement('a');
 link.classList.add('fa')
 link.classList.add('fa-download')
-link.addEventListener('click', function(ev) {
-link.href = canvas.toDataURL();
-link.download = "mypainting.png";
+link.addEventListener('click', function (ev) {
+    link.href = canvas.toDataURL();
+    link.download = "mypainting.png";
 }, false);
 document.body.appendChild(link);
 
