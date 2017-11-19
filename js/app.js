@@ -19,9 +19,10 @@ var gImgs = [{ id: 1, url: 'img/gallery/1.jpg', keywords: ['sad', 'really', 'hap
 
 var gMeme = {
     selectedImgId: 5,
+    selectedImg: null,
     txts: [
         {
-            line: 'I never eat Falafel', 
+            line: 'I never eat Falafel',
             size: 20,
             align: 'left',
             color: 'red'
@@ -79,8 +80,8 @@ function drawOnCanvas(id) {
 
     img.onload = function () {
         ctx.imageSmoothingEnabled = false;
+        gMeme.selectedImg = img;
         ctx.drawImage(img, 0, 0, 500, 500);
-
     };
 
 }
@@ -137,15 +138,13 @@ function setPopularKey(key, i) {
 
 //// draw text on canvas
 function createTxtOnCancas() {
-
     var txt = document.getElementById('inputText').value;
     var ctx = gElCanvas.getContext("2d");
+    ctx.drawImage(gMeme.selectedImg, 0, 0, 500, 500);
     // ctx.clearRect ( 0 , 0 , gElCanvas.width ,  gElCanvas.height );
     ctx.font = '48px serif';
     ctx.fillStyle = "#fff";
     gMeme.line = ctx.fillText(txt, 10, 50);
-
-    drawOnCanvas(gMeme.selectedImgId);
     // document.getElementById('inputText').value = '';
 }
 
