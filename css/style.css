@@ -15,24 +15,32 @@ body {
     background: var(--bg-main-color);
 }
 
-.searchbox {
+.text-input  {
 	border:none;
 	background:#454545;
 	color:#d7fcf5;
 	margin:0 0 5px;
 	padding:10px;
 }
+.img-url {
+	min-width: 140px;
+    text-align: center;
+}
 
-[value="Search"] {
+.btn {
     cursor:pointer;
 	border:none;
 	background:#2eb398;
 	color:#d7fcf5;
 	margin:0 0 5px;
-	padding:10px;   
+	padding:10px;  
+	font-family: var(--primary-font);
+	text-decoration: none;
+	font-size: .8em;
+	border-radius: 5px;
 }
 
-[value="Search"]:hover {
+.btn:hover {
 	background:#454545;
 	transition:background-color 0.3s ease-in-out;
 }
@@ -79,3 +87,9 @@ body {
 	border:  0;
 
 } */
+.btn:focus {
+    outline:none;
+}
+.text-input:focus {
+    outline:none;
+}

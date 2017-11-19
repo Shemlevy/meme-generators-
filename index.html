@@ -42,12 +42,13 @@
         <!-- popular key words -->
         <div class="keywords-text"></div>
         <!-- search bok -->
-        <input type="text" class="searchbox">
-        <input id="btnSearch" type="button" value="Search" onclick="getMemeBykey(document.querySelector('.searchbox').value)">
-        <button class="increase-fs" onclick="increaseFontSize()">+</button>   
-        
-        
-        
+        <!-- <input id="btnSearch" type="button" value="Search" onclick="getMemeBykey(document.querySelector('.searchbox').value)"> -->
+    
+        <input type="text" class="searchbox text-input">
+        <input id="btnSearch" type="button" value="Search" class="btn-search btn" onclick="getMemeBykey(document.querySelector('.searchbox').value)">
+        <input type="url" value="Paste the image URL here" onfocus="this.value='';" class="img-url text-input">        
+        <input type="button" value="Upload an Image" class="btn upload-btn" onclick="drawOnCanvas('url')">
+        <input type="button" value="Back To Gallery" class="btn" onclick="renderImgs(gImgs)">
     </section>
 
 
@@ -73,6 +74,9 @@
     <!-- main site gallery vs canvas -->
     <section class="container">
         <secetion class="gallery"></secetion>
+        <a class="download-btn btn" href="#" id="download" onclick="downloadImg(this)"> 
+                Download as image
+                </a>   
         <!-- <secetion class="canvas"> -->
         <canvas id="canvas">
             Soory your browser doesnt support our app
