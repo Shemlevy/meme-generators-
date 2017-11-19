@@ -102,14 +102,11 @@ function toggleScreens() {
 //function get memes by key
 function getMemeBykey(key) {
     if (!gElCanvas.classList.contains('hide')) gElCanvas.classList.toggle('hide');
-    var firstMatch = 0;
     var filteredImg = gImgs.filter(function (img) {
         var matchKey = false;
-        var i = 0;
         var match = img.keywords.filter(function (keyword) {
-            if (keyword === key) i += 1 
+            setPopularKey(key)
             return (keyword.includes(key));
-            console.log(i)
         })
         if (match.length) return true;
         return false;
@@ -121,39 +118,34 @@ function getMemeBykey(key) {
         }, 500);
     }
     renderImgs(filteredImg)
-
-
-
-
-
-
-    //     firstMatch += 1
-    //     imgUrl.push(img)
-    //     renderImgs(imgUrl);
-    //     document.querySelector('.searchbox').value = '';
-    //     setPopularKey(key, firstMatch)
-    // } else {
-    //     // have a bug when finel keyword doesnt match to key no result print
-    //     //eventough that there is some result/
-
-
-
 }
 
-
+/*ON WORKIN*/
 //function set new popular keywords - The more they are disguised, the greater they are!
-function setPopularKey(key, i) {
-    if (i === 1) {
-        var elKeyWordsInput = document.querySelector('.keywords-text');
-        if (elKeyWordsInput.innerHTML.indexOf(key) !== -1) {
-            var elKeyWord = document.querySelector(`.${key}`);
-            var currSize = window.getComputedStyle(elKeyWord, null).getPropertyValue('font-size');
-            var fontSize = parseFloat(currSize);
-            elKeyWord.style.fontSize = (fontSize + 2) + 'px';
-        } else {
-            elKeyWordsInput.innerHTML += `<span class="${key}">${key}&nbsp</span>`
+function setPopularKey() {
+    var elKeyWordsInput = document.querySelector('.keywords-text');
+    var obj = {};
+    gImgs.forEach(function (img) {
+        img.keywords.forEach(function (keyword) {
+            if (!obj[keyword]) obj[keyword] = 1;
+            obj[keyword]++
+        })
+    })
+
+    for (Object.keys in obj) {
+        if (object.hasOwnProperty(key)) {
+            const element = object[key];
+
         }
     }
+    elKeyWordsInput.innerHTML += `<span size="${obj[i].keyword}">${key}&nbsp</span>`
+    console.log('key:', key, 'obj[i].keyword', obj[i].keyword)
+
+
+    // var currSize = window.getComputedStyle(elKeyWord, null).getPropertyValue('font-size');
+    // var fontSize = parseFloat(currSize);
+    // elKeyWord.style.fontSize = (fontSize + 2) + 'px';
+
 }
 
 //// draw text on canvas
@@ -166,20 +158,25 @@ function createTxtOnCancas() {
     var ctx = gElCanvas.getContext("2d");
     ctx.drawImage(gMeme.selectedImg, 0, 0, 500, 500);
     ctx.font = gMeme.txts[0].size + 'em ' + gMeme.txts[0].font;
-    // CR : exract into other function to save this important function clean. 
-    if (gMeme.txts[0].shadow) {
-        ctx.shadowColor = 'black';
-        ctx.shadowOffsetY = 5;
-        ctx.shadowOffsetX = 5;
-    } else {
-        ctx.shadowOffsetY = 0;
-        ctx.shadowOffsetX = 0;
-    }
-
+    getShadow(ctx)
     ctx.fillStyle = gMeme.txts[0].color;
     ctx.fillText(txt, gMeme.txts[0].positionx, gMeme.txts[0].positiony);
     ctx.fillText(txt2, gMeme.txts[0].positionx, gMeme.txts[0].positiony + 410);
 }
+
+//function toggle shadow for text on canvas
+function getShadow(ctx) {
+    if (gMeme.txts[0].shadow) {
+        ctx.shadowColor = 'black';
+        ctx.shadowOffsetY = 3;
+        ctx.shadowOffsetX = 3;
+    } else {
+        ctx.shadowOffsetY = 0;
+        ctx.shadowOffsetX = 0;
+    }
+}
+
+
 
 //change font size
 function ChangeFontSize(op) {
@@ -188,7 +185,6 @@ function ChangeFontSize(op) {
 }
 
 //// Download canvas
-
 // var link = document.createElement('a');
 // link.classList.add('fa')
 // link.classList.add('fa-download')
@@ -204,7 +200,6 @@ function downloadImg(elLink) {
     elLink.href = canvas.toDataURL();
     elLink.download = 'perfectMeme.jpg';
 }
-
 
 function changeColor(newColor) {
     gMeme.txts[0].color = newColor;
