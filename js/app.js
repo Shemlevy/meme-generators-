@@ -23,9 +23,11 @@ var gMeme = {
     txts: [
         {
             line: 'I never eat Falafel',
-            size: 20,
+            size: 3,
             align: 'left',
-            color: 'red'
+            color: 'red',
+            font: 'Lato',
+            shadow: false
         }]
 };
 
@@ -138,45 +140,47 @@ function setPopularKey(key, i) {
 
 //// draw text on canvas
 function createTxtOnCancas() {
-    var txt = document.getElementById('inputText').value;
+    var txt = document.getElementById('inputText1').value;
+    var txt2 = document.getElementById('inputText2').value;
+
     var ctx = gElCanvas.getContext("2d");
     ctx.drawImage(gMeme.selectedImg, 0, 0, 500, 500);
     // ctx.clearRect ( 0 , 0 , gElCanvas.width ,  gElCanvas.height );
-    ctx.font = '48px serif';
-    ctx.fillStyle = "#fff";
-    gMeme.line = ctx.fillText(txt, 10, 50);
-    // document.getElementById('inputText').value = '';
+    ctx.font = gMeme.txts[0].size + 'em ' + gMeme.txts[0].font;
+    if (gMeme.txts[0].shadow) {
+        ctx.shadowColor = 'black';
+        ctx.shadowOffsetY = 5;
+        ctx.shadowOffsetX = 5;
+    } else {
+        ctx.shadowOffsetY = 0;
+        ctx.shadowOffsetX = 0;
+    }
+
+    ctx.fillStyle = gMeme.txts[0].color;
+    ctx.fillText(txt, 10, 50);
+    ctx.fillText(txt2, 10, 460);
+  
 }
 
-//icrease font size
-function increaseFontSize() {
-
+//change font size
+function ChangeFontSize(op) {
+    (op === '+') ? gMeme.txts[0].size += 1 : gMeme.txts[0].size -= 1
+    createTxtOnCancas()
 }
-
 
 //// Download canvas
 
 
-var link = document.createElement('a');
-link.classList.add('fa')
-link.classList.add('fa-download')
-link.addEventListener('click', function (ev) {
-    link.href = canvas.toDataURL();
-    link.download = "mypainting.png";
-}, false);
-document.body.appendChild(link);
+// var link = document.createElement('a');
+// link.classList.add('fa')
+// link.classList.add('fa-download')
+// link.addEventListener('click', function (ev) {
+//     link.href = canvas.toDataURL();
+//     link.download = "mypainting.png";
+// }, false);
+// document.body.appendChild(link);
 
 
-
-
-///// draw input on the canvas
-
-// function drawTopInput() {
-//     document.querySelector('.input-holder').classList.add('.input-holder-show')
-//    var input = document.querySelector('.add-line').value;
-//    document.querySelector('.input-txt').value = input;
-//    document.querySelector('.add-line').value = '';
-// }
 
 
 //function for download meme
@@ -187,10 +191,20 @@ function downloadImg(elLink) {
 }
 
 
+function changeColor(newColor) {
+    gMeme.txts[0].color = newColor;
+    createTxtOnCancas()
+}
 
+function addShadow() {
+    gMeme.txts[0].shadow = !gMeme.txts[0].shadow;
+    createTxtOnCancas()
+}
 
-
-
+function ChangeFont() {
+    gMeme.txts[0].font = 'David';
+    createTxtOnCancas()    
+}
 
 
 

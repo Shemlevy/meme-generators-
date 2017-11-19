@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Montez|Lobster|Josefin+Sans|Shadows+Into+Light|Pacifico|Amatic+SC:700|Orbitron:400,900|Rokkitt|Righteous|Dancing+Script:700|Bangers|Chewy|Sigmar+One|Architects+Daughter|Abril+Fatface|Covered+By+Your+Grace|Kaushan+Script|Gloria+Hallelujah|Satisfy|Lobster+Two:700|Comfortaa:700|Cinzel|Courgette' rel='stylesheet' type='text/css'>
     <title>Meme generator</title>
 </head>
 
@@ -33,20 +34,28 @@
         <img src="img/logo/logo.png" alt="" class="logo">
     </label>
 
-    <!-- search bok -->
-    <input type="text" class="add-line" id="inputText" oninput="createTxtOnCancas()" >
-    <!-- <input class="btn-add-line" type="button" value="Add top line" onclick="createTxtOnCancas()"> -->
+    <!-- editor -->
+    <secetion class="editor">
+        <input type="text" class="add-line" id="inputText1" oninput="createTxtOnCancas()">
+        <input type="text" class="add-line" id="inputText2" oninput="createTxtOnCancas()">
+        <input type="button" value="+" class="btn" onclick="ChangeFontSize('+')">
+        <input type="button" value="-" class="btn" onclick="ChangeFontSize('-')">
+        <input type="color"  onchange="changeColor(value)">
+        <input type="button" value="shadow" class="btn" onclick="addShadow()">
+        <input type="button" value="Font" class="btn" onclick="ChangeFont()">
+        <select id = 'select' onChange = "return fontChange();">
+        </select>
+        
+    </secetion>
 
     <!-- keywords section -->
     <section class="keywords">
         <!-- popular key words -->
         <div class="keywords-text"></div>
         <!-- search bok -->
-        <!-- <input id="btnSearch" type="button" value="Search" onclick="getMemeBykey(document.querySelector('.searchbox').value)"> -->
-    
         <input type="text" class="searchbox text-input">
         <input id="btnSearch" type="button" value="Search" class="btn-search btn" onclick="getMemeBykey(document.querySelector('.searchbox').value)">
-        <input type="url" value="Paste the image URL here" onfocus="this.value='';" class="img-url text-input">        
+        <input type="url" value="Paste the image URL here" onfocus="this.value='';" class="img-url text-input">
         <input type="button" value="Upload an Image" class="btn upload-btn" onclick="drawOnCanvas('url')">
         <input type="button" value="Back To Gallery" class="btn" onclick="renderImgs(gImgs)">
     </section>
@@ -74,9 +83,9 @@
     <!-- main site gallery vs canvas -->
     <section class="container">
         <secetion class="gallery"></secetion>
-        <a class="download-btn btn" href="#" id="download" onclick="downloadImg(this)"> 
-                Download as image
-                </a>   
+        <a class="download-btn btn" href="#" id="download" onclick="downloadImg(this)">
+            Download as image
+        </a>
         <!-- <secetion class="canvas"> -->
         <canvas id="canvas">
             Soory your browser doesnt support our app
@@ -86,7 +95,7 @@
        </div> -->
         </secetion>
         <!-- </section> -->
-        
+
 
         <!-- about us secetion  -->
         <div class="about-wrapper">
@@ -157,6 +166,7 @@
 
         <!-- main js script -->
         <script src="js/app.js"></script>
+        <script> drc="js/fontSelector.js"</script>
 </body>
 
 </html>
