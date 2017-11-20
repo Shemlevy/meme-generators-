@@ -80,9 +80,10 @@
         <secetion class="editor">
             <input type="text" class="add-line" id="inputText1" onfocus="onFocus(0)" oninput="createTxtOnCanvas()">
             <input type="text" class="add-line" id="inputText2" onfocus="onFocus(1)" oninput="createTxtOnCanvas()">
-            <input type="text" class="add-line" id="inputText3" onfocus="onFocus(2), addLine()" oninput="createTxtOnCanvas()">            
+            <input type="text" class="add-line input3" id="inputText3" onfocus="onFocus(2), addLine()" oninput="createTxtOnCanvas()">            
             <input type="button" value="+" class="btn" onclick="ChangeFontSize('+')">
             <input type="button" value="-" class="btn" onclick="ChangeFontSize('-')">
+            <input type="button" value="Add Line" class="btn" onclick="add3rdInput()">            
             <input type="color" onchange="changeColor(value)">
             <input type="button" value="shadow" class="btn" onclick="addShadow()">
             <select id='select' class="btn" onChange="return fontChange();"></select>

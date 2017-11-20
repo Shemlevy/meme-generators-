@@ -105,6 +105,7 @@ function toggleScreens() {
     gElGallery.classList.add('hide');
     gElCanvas.classList.toggle('hide');
     gElEditor.classList.toggle('hide');
+    document.getElementById('inputText3').classList.add('input3')
 }
 
 //function get memes by key
@@ -246,11 +247,15 @@ function moveWithArrow() {
         break;
         case 40:
         gMeme.txts[gActiveInput].positiony += 10
+        break;
     } 
         createTxtOnCanvas();
 }
 
 function addLine() {
+    if(gMeme.txts[2]) return;
+    
+    
     var newLine = {
         size: 1.5,
         align: 'left',
@@ -261,6 +266,10 @@ function addLine() {
         positiony: 250, 
     }
     gMeme.txts.push(newLine)
+}
+
+function add3rdInput() {
+    document.getElementById('inputText3').classList.remove('input3');
 }
     
 
