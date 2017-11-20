@@ -248,7 +248,24 @@ function add3rdInput() {
     document.getElementById('inputText3').classList.remove('input3');
 }
 
-
+//// buttons for phone
+function moveTxt(direction) { 
+    switch(direction) {
+       case 37:
+       gMeme.txts[gActiveInput].positionX -= 10
+           break;
+       case 38:
+       gMeme.txts[gActiveInput].positionY -= 10
+           break;
+       case 39:
+       gMeme.txts[gActiveInput].positionX += 10
+       break;
+       case 40:
+       gMeme.txts[gActiveInput].positionY += 10
+       break;
+   }
+       createTxtOnCanvas();
+}
 
 
 
