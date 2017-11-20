@@ -31,6 +31,10 @@
     line-height: 0;
 }
 
+.btn-phone {
+	display: none;
+}
+
 @media (max-width: 740px) {
     .editor {
         flex-flow: row wrap;
@@ -43,6 +47,6 @@
     }
 
     .btn-phone {
-        display: inline;
+        display: block;
     }  
 }
