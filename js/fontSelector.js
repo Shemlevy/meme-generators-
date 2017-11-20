@@ -11,7 +11,7 @@ for (var a = 0; a < fonts.length; a++) {
 
 function fontChange() {
     var selectedFont = document.getElementById("select").value;
-    gMeme.txts[0].font = selectedFont;
-    createTxtOnCancas()
+    gMeme.txts[gActiveInput].font = selectedFont;
+    createTxtOnCanvas();
 }
 

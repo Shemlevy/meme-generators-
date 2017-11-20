@@ -83,3 +83,7 @@ body {
 .keywords-text a:hover {
 	color: var(--secondary-color);
 }
+
+.input3 {
+	display: none
+}

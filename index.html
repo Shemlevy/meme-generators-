@@ -12,7 +12,7 @@
     <title>Meme generator</title>
 </head>
 
-<body onload="init()">
+<body onload="init()" onkeydown="moveWithArrow()">
     <!-- navigation for desktop -->
     <nav class="main-nav">
         <ul class="desk-nav">
@@ -78,10 +78,19 @@
         </canvas>
         <!-- editor -->
         <secetion class="editor">
+<<<<<<< HEAD
             <input type="text" value="Top Line" class="add-line" id="inputText1" onfocus="this.value='';"  oninput="createTxtOnCancas()">
             <input type="text" value="Bottom Line" class="add-line" id="inputText2" onfocus="this.value='';"  oninput="createTxtOnCancas()">
             <input type="button" value="+" class="btn btn-size" onclick="ChangeFontSize('+')">
             <input type="button" value="-" class="btn btn-size" onclick="ChangeFontSize('-')">
+=======
+            <input type="text" class="add-line" id="inputText1" onfocus="onFocus(0)" oninput="createTxtOnCanvas()">
+            <input type="text" class="add-line" id="inputText2" onfocus="onFocus(1)" oninput="createTxtOnCanvas()">
+            <input type="text" class="add-line input3" id="inputText3" onfocus="onFocus(2), addLine()" oninput="createTxtOnCanvas()">            
+            <input type="button" value="+" class="btn" onclick="ChangeFontSize('+')">
+            <input type="button" value="-" class="btn" onclick="ChangeFontSize('-')">
+            <input type="button" value="Add Line" class="btn" onclick="add3rdInput()">            
+>>>>>>> b302ed70756fbb2ce5efbdca40cdced6eb0ff085
             <input type="color" onchange="changeColor(value)">
             <input type="button" value="shadow" class="btn" onclick="addShadow()">
             <select id='select' class="btn" onchange="return fontChange()"></select>
