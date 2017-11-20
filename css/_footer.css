@@ -8,6 +8,7 @@
     height: 43px;
     max-width: 100%;
     margin: 0;
+    align-items: center;
     background: #222222;
     color: #454545;
 }
