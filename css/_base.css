@@ -67,7 +67,7 @@ body {
 	text-align: center;
 }
 .searchbox:focus {
-	text-align: left;	
+	text-align: center;	
 }
 .keywords-text {
 	margin-top:10px;
