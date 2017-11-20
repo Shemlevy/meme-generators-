@@ -1,22 +1,18 @@
 .about-wrapper {
     display: flex;
-    /* max-width: 100%; */
     background-color: var(--secondary-color);
 }
 
 .about {
     display: flex;
-    flex-flow: row ;
     align-items: center;
-    /* justify-content: space-around; */
     max-width: 100%;
     height: 341px;
-    /* padding: 0 30px; */
     background-color: var(--secondary-color);
     margin: 0 auto;
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
     .developer-img {
         max-width: 100px;
         max-height: 100px;
@@ -25,15 +21,13 @@
     .info > p {
         max-height: 15px
     }
- }
+ } */
 
 .info-txt {
-    display: flex;
-    flex-flow: row wrap;
+    /* display: flex; */
+    /* flex-flow: row wrap; */
     max-width: 360px;
     max-height: 117px;
-    /* align-items: stretch; */
-    /* justify-content: space-around; */
     max-height:  100%;
 }
 
