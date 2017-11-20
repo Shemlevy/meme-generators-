@@ -13,6 +13,5 @@ function fontChange() {
     var selectedFont = document.getElementById("select").value;
     gMeme.txts[0].font = selectedFont;
     createTxtOnCancas()
-
 }
 

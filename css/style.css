@@ -16,7 +16,6 @@
 body {
     background: var(--bg-main-color);
 }
-
 .keywords {
 	margin: auto;
 	margin-top: 20px;
@@ -24,7 +23,6 @@ body {
 	flex-flow: column wrap;
 	max-width:60%;
 }
-
 .text-input  {
 	border:none;
 	background:#45454500;
@@ -37,7 +35,6 @@ body {
 .img-url {
     text-align: center;
 }
-
 .btn {
     cursor:pointer;
 	border:none;
@@ -52,42 +49,10 @@ body {
 	width: 120px;
 	text-align: center;
 }
-
 .btn:hover {
 	background:#454545;
 	transition:background-color 0.3s ease-in-out;
 }
-
-
-
-
-
-/* .input-holder {
-	max-width: 45%;
-	height: 7%;
-	display: none;
-} */
-
-/* .input-holder-show {
-	width: 100%;
-	display: flex;	
-	position: absolute;
-	top:30%;
-	left: 3%;
-	opacity:1;
-	background:rgba(0,0,0,0.5);
-	
-	} */
-
-/* .input-txt {
-	width: 100%;
-	background:rgba(0,0,0,0.5);
-	color: white;
-	font-size: 2em;
-	opacity: 1 !important;
-	border:  0;
-
-} */
 .btn:focus {
     outline:none;
 }
@@ -103,6 +68,18 @@ body {
 	text-align: center;
 }
 .searchbox:focus {
-	text-align: left;
-	
+	text-align: left;	
+}
+.keywords-text {
+	margin-top:10px;
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: 'Orbitron';
+	justify-content: center;
+	cursor: pointer;	
+}
+
+.keywords-text a:hover {
+	color: var(--secondary-color);
 }

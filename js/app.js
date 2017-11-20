@@ -1,9 +1,5 @@
 'use strict'
 console.log('memegenertor')
-function elad() {
-    event.preventDefault()
-    console.log(event.target.value)
-}
 
 //global vars
 var gImgs = [{ id: 1, url: 'img/gallery/1.jpg', keywords: ['sad', 'really', 'happy'] },
@@ -17,7 +13,7 @@ var gImgs = [{ id: 1, url: 'img/gallery/1.jpg', keywords: ['sad', 'really', 'hap
 { id: 9, url: 'img/gallery/9.jpg', keywords: ['muki', 'mad', 'smoke'] },
 { id: 10, url: 'img/gallery/10.jpg', keywords: ['6', '7', 'smoke'] },
 { id: 11, url: 'img/gallery/11.jpg', keywords: ['angry', 'mad', 'smoke'] },
-{ id: 12, url: 'img/gallery/12.jpg', keywords: ['sad', 'mad', 'smoke'] },
+{ id: 12, url: 'img/gallery/12.jpg', keywords: ['sad', 'mad', 'fogk'] },
 { id: 13, url: 'img/gallery/13.jpg', keywords: ['foo', 'fii', 'smoke'] },
 ];
 
@@ -38,7 +34,7 @@ var gMeme = {
             positiony: 50,
             positionBottomX: 10,
             positionBottomY: 460,
-            
+
         }, {
             line: 'I never eat Falafel',
             size: 1.5,
@@ -60,10 +56,10 @@ var gElGallery = document.querySelector('.gallery');
 //when page load init active renderImgs
 function init() {
     renderImgs(gImgs);
+    setPopularKey()
 }
 
 //function render photo to gallery
-//CR : All the editor staff under one section
 function renderImgs(array) {
     gElEditor.classList.add('hide');
     gElCanvas.classList.add('hide');
@@ -76,10 +72,6 @@ function renderImgs(array) {
     });
     gElGallery.innerHTML = strHtml;
 }
-
-
-
-
 
 //function draw selcted img on canvas and pass user to edit screen
 function drawOnCanvas(id) {
@@ -134,41 +126,30 @@ function getMemeBykey(key) {
     renderImgs(filteredImg)
 }
 
-/*ON WORKIN*/
 //function set new popular keywords - The more they are disguised, the greater they are!
 function setPopularKey() {
     var elKeyWordsInput = document.querySelector('.keywords-text');
-    var obj = {};
+    var wordsCountMap = {};
     gImgs.forEach(function (img) {
         img.keywords.forEach(function (keyword) {
-            if (!obj[keyword]) obj[keyword] = 1;
-            obj[keyword]++
+            if (!wordsCountMap[keyword]) wordsCountMap[keyword] = 1;
+            wordsCountMap[keyword]++
         })
     })
+    console.log(wordsCountMap)
+    for (var word in wordsCountMap) {
+        elKeyWordsInput.innerHTML += `<a style="font-size:${wordsCountMap[word] * 10}px;" onclick="getMemeBykey('${word}')">
+        ${word}&nbsp
+    </a>`
 
-    for (Object.keys in obj) {
-        if (object.hasOwnProperty(key)) {
-            const element = object[key];
-
-        }
     }
-    elKeyWordsInput.innerHTML += `<span size="${obj[i].keyword}">${key}&nbsp</span>`
-    console.log('key:', key, 'obj[i].keyword', obj[i].keyword)
-
-
-    // var currSize = window.getComputedStyle(elKeyWord, null).getPropertyValue('font-size');
-    // var fontSize = parseFloat(currSize);
-    // elKeyWord.style.fontSize = (fontSize + 2) + 'px';
-
 }
 
 //// draw text on canvas
-//CR: gMeme.texts soppused to have an array with objects of text. each object of his content and all its style properties 
 function createTxtOnCancas() {
     //CR :  more practice solution.
     var txt = document.getElementById('inputText1').value;
     var txt2 = document.getElementById('inputText2').value;
-    // console.log(activeLine)
     var ctx = gElCanvas.getContext("2d");
     ctx.drawImage(gMeme.selectedImg, 0, 0, 500, 500);
     ctx.font = gMeme.txts[0].size + 'em ' + gMeme.txts[0].font;
@@ -190,23 +171,11 @@ function getShadow(ctx) {
     }
 }
 
-
-
 //change font size
 function ChangeFontSize(op) {
     (op === '+') ? gMeme.txts[0].size += 0.5 : gMeme.txts[0].size -= 0.5
     createTxtOnCancas()
 }
-
-//// Download canvas
-// var link = document.createElement('a');
-// link.classList.add('fa')
-// link.classList.add('fa-download')
-// link.addEventListener('click', function (ev) {
-//     link.href = canvas.toDataURL();
-//     link.download = "mypainting.png";
-// }, false);
-// document.body.appendChild(link);
 
 //function for download meme
 function downloadImg(elLink) {
@@ -225,11 +194,11 @@ function addShadow() {
     createTxtOnCancas()
 }
 
-function alignTextTop   (direction) {
-    if(direction === 'left') {
+function alignTextTop(direction) {
+    if (direction === 'left') {
         gMeme.txts[0].positionx = 10;
         createTxtOnCancas();
-    } else if(direction === 'center') {
+    } else if (direction === 'center') {
         gMeme.txts[0].positionx = 100;
         createTxtOnCancas();
     } else {
@@ -238,18 +207,6 @@ function alignTextTop   (direction) {
     }
 }
 
-// function alignTextBottom (direction) {
-//     if(direction === 'left') {
-//         gMeme.txts[0].positionBottomX = 10;
-//         createTxtOnCancas();
-//     } else if(direction === 'center') {
-//         gMeme.txts[0].positionBottomX = 100;
-//         createTxtOnCancas();
-//     } else {
-//         gMeme.txts[0].positionBottomX = 400;
-//         createTxtOnCancas()
-//     }
-// }
 
 
 
