@@ -58,11 +58,14 @@ function init() {
 
 //function render photo to gallery
 function renderImgs(array) {
+    var elKeyWordsInput = document.querySelector('.keywords-text');
     gElEditor.classList.add('hide');
     gElCanvas.classList.add('hide');
-    if (document.querySelector('.gallery').classList.contains('hide')) {
-        document.querySelector('.gallery').classList.toggle('hide');
-    };
+    if (gElGallery.classList.contains('hide'))gElGallery.classList.toggle('hide');
+    if (elKeyWordsInput.classList.contains('hide')) elKeyWordsInput.classList.toggle('hide')
+    document.querySelector('.btn-add-line').classList.remove('input3');
+    
+    
     var strHtml = ''
     array.forEach(function (img) {
         return strHtml += `<img onclick="drawOnCanvas(${img.id})" class="img-gallery" src="${img.url}" alt="">`
@@ -81,6 +84,7 @@ function drawOnCanvas(id) {
         }
     }
     toggleScreens()
+    gElCanvas.scrollIntoView();
     gMeme.selectedImgId = id;
     canvas.width = 500;
     canvas.height = 500;
@@ -97,6 +101,8 @@ function drawOnCanvas(id) {
 
 //toggle between the screens gallery vs canvas editor
 function toggleScreens() {
+    var elKeyWordsInput = document.querySelector('.keywords-text');
+    elKeyWordsInput.classList.toggle('hide');
     gElGallery.classList.add('hide');
     gElCanvas.classList.toggle('hide');
     gElEditor.classList.toggle('hide');
@@ -251,6 +257,7 @@ function addLine() {
 
 function add3rdInput() {
     document.getElementById('inputText3').classList.remove('input3');
+    document.querySelector('.btn-add-line').classList.add('input3');
 }
 
 //// buttons for phone

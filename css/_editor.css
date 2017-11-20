@@ -25,8 +25,8 @@
 }
 
 .btn-size {
-    width: 2em;
-    height: 2em;
+    /* width: 1em;
+    height: 1em; */
     font-size: 2em;
     line-height: 0;
 }
@@ -34,11 +34,11 @@
 @media (max-width: 740px) {
     .editor {
         flex-flow: row wrap;
-         max-width: 95vw;
-         margin-top: 10px;  
+         max-width: 98vw;
+         margin-top: 10px; 
+         justify-content: center; 
     }
     .btn { 
-      height: 100%;
       align-self: center;
     }
 }

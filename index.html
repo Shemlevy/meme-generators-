@@ -58,23 +58,22 @@
             Soory your browser doesnt support our app
         </canvas>
         <!-- editor -->
-        <secetion class="editor">
+        <secetion id="editor" class="editor">
             <input type="text" placeholder="Top Line" class="add-line" id="inputText1" onfocus="onFocus(0)" oninput="createTxtOnCanvas()">
             <input type="text" placeholder="Bottom Line" class="add-line" id="inputText2" onfocus="onFocus(1)" oninput="createTxtOnCanvas()">
-            <input type="text" class="add-line input3" id="inputText3" onfocus="onFocus(2), addLine()" oninput="createTxtOnCanvas()">
+            <input type="text" placeholder="Middle Line" class="add-line input3" id="inputText3" onfocus="onFocus(2), addLine()" oninput="createTxtOnCanvas()">
             <input type="range" min="2" max="6" onchange="ChangeFontSize()">
-            <input type="button" value="Add Line" class="btn" onclick="add3rdInput()">
+            <input type="button" value="Add Line" class="btn btn-add-line" onclick="add3rdInput()">
             <input class="jscolor btn"  onchange="changeColor('#' + value)">
             <input type="button" value="shadow" class="btn" onclick="addShadow()">
             <select id='select' class="btn" onchange="return fontChange()"></select>
-            <input type="button" value="Align Center" class="btn" onclick="alignTextTop('center',0)">
-            <input type="button" value="Align Right" class="btn" onclick="alignTextTop('right',0)">
-            <input type="button" value="Align Left" class="btn" onclick="alignTextTop('left',0)">
             <input type="button" value="←" class="btn btn-phone" onclick="moveTxt(37)">
             <input type="button" value="→" class="btn btn-phone" onclick="moveTxt(39)">
             <input type="button" value="↑" class="btn btn-phone" onclick="moveTxt(38)">
-            <input type="button" value="↓" class="btn btn-phone" onclick="moveTxt(40)">
-            
+            <input type="button" value="↓" class="btn btn-phone" onclick="moveTxt(40)"> 
+            <i class="fa fa-align-right" aria-hidden="true" onclick="alignTextTop('right',0)"></i>
+            <i class="fa fa-align-center" aria-hidden="true" onclick="alignTextTop('center',0)"></i>
+            <i class="fa fa-align-left" aria-hidden="true" onclick="alignTextTop('left',0)"></i>           
             <a class="download-btn btn" href="#" id="download" onclick="downloadImg(this)">
                 Download as image
             </a>
