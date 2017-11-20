@@ -31,6 +31,10 @@
     line-height: 0;
 }
 
+.btn-phone {
+	display: none;
+}
+
 @media (max-width: 740px) {
     .editor {
         flex-flow: row wrap;
@@ -41,5 +45,13 @@
     .btn { 
       align-self: center;
     }
+<<<<<<< HEAD
 }
 
+=======
+
+    .btn-phone {
+        display: block;
+    }  
+}
+>>>>>>> 1dae255f596eaa4ebc6a03bc18fbade6f8f36077
