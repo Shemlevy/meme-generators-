@@ -1,0 +1,89 @@
+@import '_vars.css';
+@import '_nav.css';
+@import '_fonts.css';
+@import '_dev-info.css';
+@import '_container.css';
+@import '_editor.css';
+@import '_gallery.css';
+@import '_canvas.css';
+@import '_contact.css';
+@import '_footer.css';
+
+
+
+
+
+body {
+    background: var(--bg-main-color);
+}
+.keywords {
+	margin: auto;
+	margin-top: 20px;
+	display: flex;
+	flex-flow: column wrap;
+	max-width:60%;
+}
+.text-input  {
+	border:none;
+	background:#45454500;
+	color:#15c7a3;
+	border-bottom: 1px solid var(--main-color);
+	margin:0 0 5px;
+	padding:10px;
+	font-size: 1em;
+}
+.img-url {
+    text-align: center;
+}
+.btn {
+    cursor:pointer;
+	border:none;
+	background:#2eb398;
+	color:#d7fcf5;
+	margin:5px;
+	padding:10px;  
+	font-family: var(--primary-font);
+	text-decoration: none;
+	font-size: .8em;
+	border-radius: 5px;
+	width: 120px;
+	text-align: center;
+}
+.btn:hover {
+	background:#454545;
+	transition:background-color 0.3s ease-in-out;
+}
+.btn:focus {
+    outline:none;
+}
+.text-input:focus {
+	outline:none;
+}
+
+.btn-color {
+	background: rgba(255, 255, 255, 0);
+}
+
+.searchbox {
+	text-align: center;
+}
+.searchbox:focus {
+	text-align: left;	
+}
+.keywords-text {
+	margin-top:10px;
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: 'Orbitron';
+	justify-content: center;
+	cursor: pointer;	
+}
+
+.keywords-text a:hover {
+	color: var(--secondary-color);
+}
+
+.input3 {
+	display: none
+}
