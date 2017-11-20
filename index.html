@@ -85,7 +85,7 @@
             <input type="button" value="+" class="btn btn-size" onclick="ChangeFontSize('+')">
             <input type="button" value="-" class="btn btn-size" onclick="ChangeFontSize('-')">
             <input type="button" value="Add Line" class="btn" onclick="add3rdInput()">
-            <input class="jscolor"  onchange="changeColor('#' + value)">
+            <input class="jscolor btn"  onchange="changeColor('#' + value)">
             <input type="button" value="shadow" class="btn" onclick="addShadow()">
             <select id='select' class="btn" onchange="return fontChange()"></select>
             <input type="button" value="Align Center" class="btn" onclick="alignTextTop('center',0)">
@@ -172,6 +172,7 @@
     <script src="js/app.js"></script>
     <script src="js/fontSelector.js"></script>
     <script src="js/jscolor.js"></script>
+    <script src="js/draw.js"></script>    
 </body>
 
 </html>

@@ -35,6 +35,12 @@ body {
 	width: 120px;
 	text-align: center;
 }
+
+.jscolor {
+	padding-left: 0;
+	padding-right: 0;	
+}
+
 .btn:hover {
 	background:#454545;
 	transition:background-color 0.3s ease-in-out;
