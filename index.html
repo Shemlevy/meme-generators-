@@ -17,16 +17,16 @@
     <nav class="main-nav">
         <ul class="desk-nav">
             <li>
-                <a href="#" class="main-nav-item">portfolio</a>
+                <a href="#container" class="main-nav-item">portfolio</a>
             </li>
             <li>
-                <a href="#" class="main-nav-item">about</a>
+                <a href="#about-wrapper" class="main-nav-item">about</a>
             </li>
             <li>
-                <a href="#" class="main-nav-item">blog</a>
+                <a href="#about-wrapper" class="main-nav-item">blog</a>
             </li>
             <li>
-                <a href="#" class="main-nav-item">get in touch</a>
+                <a href="#contact-wrapper" class="main-nav-item">get in touch</a>
             </li>
         </ul>
     </nav>
@@ -49,28 +49,8 @@
         <div class="keywords-text"></div>
     </section>
 
-
-    <!-- navigation for mobile -->
-    <nav class="mobile-nav">
-        <input type="checkbox" id="phone-checkbox">
-        <ul class="phone-nav">
-            <li>
-                <a href="" class="phone-nav-item">portfolio</a>
-            </li>
-            <li>
-                <a href="" class="phone-nav-item">about</a>
-            </li>
-            <li>
-                <a href="" class="phone-nav-item">blog</a>
-            </li>
-            <li>
-                <a href="" class="phone-nav-item">get in touch</a>
-            </li>
-        </ul>
-    </nav>
-
     <!-- main site gallery vs canvas -->
-    <secetion class="container">
+    <secetion class="container" id="container">
         <secetion class="gallery">
         </secetion>
         <!-- <secetion class="canvas"> -->
@@ -82,8 +62,7 @@
             <input type="text" value="Top Line" class="add-line" id="inputText1" onfocus="onFocus(0)" oninput="createTxtOnCanvas()">
             <input type="text" value="Bottom Line" class="add-line" id="inputText2" onfocus="onFocus(1)" oninput="createTxtOnCanvas()">
             <input type="text" class="add-line input3" id="inputText3" onfocus="onFocus(2), addLine()" oninput="createTxtOnCanvas()">
-            <input type="button" value="+" class="btn btn-size" onclick="ChangeFontSize('+')">
-            <input type="button" value="-" class="btn btn-size" onclick="ChangeFontSize('-')">
+            <input type="range" min="2" max="6" onchange="ChangeFontSize()">
             <input type="button" value="Add Line" class="btn" onclick="add3rdInput()">
             <input type="color" onchange="changeColor(value)">
             <input type="button" value="shadow" class="btn" onclick="addShadow()">
@@ -99,7 +78,7 @@
 
 
     <!-- about us secetion  -->
-    <div class="about-wrapper">
+    <div class="about-wrapper" id="about-wrapper">
         <section class="about">
             <img class="developer-img" src="img/asaf.jpg" alt="">
             <div class="info-txt">
@@ -110,19 +89,20 @@
                     augue, eget consectetur sem dui non urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
                     porttitor, nibh at sagittis tristique, enim magna pretium augue, eget consectetur sem dui non urna.
                 </p>
-            </div>
-            <div class="social-icons">
-                <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                <i class="fa fa-google-plus-square" aria-hidden="true"></i>
-                <i class="fa fa-pinterest-square" aria-hidden="true"></i>
-                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                <div class="social-icons">
+
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                    <i class="fa fa-pinterest-square" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </div>
             </div>
         </section>
     </div>
 
     <!-- contact area -->
-    <section class="contact-wrapper">
+    <section class="contact-wrapper" id="contact-wrapper">
         <div class="contact-container">
             <form id="contact" action="" method="post">
                 <div class="fields">

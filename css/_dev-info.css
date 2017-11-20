@@ -6,122 +6,93 @@
 .about {
     display: flex;
     align-items: center;
-    max-width: 100%;
     height: 341px;
     background-color: var(--secondary-color);
     margin: 0 auto;
+    max-width: 800px;
 }
 
-/* @media (max-width: 900px) {
-    .developer-img {
-        max-width: 100px;
-        max-height: 100px;
-        bottom: 30px;
-    }
-    .info > p {
-        max-height: 15px
-    }
- } */
-
 .info-txt {
-    /* display: flex; */
-    /* flex-flow: row wrap; */
-    max-width: 360px;
+    display: flex;
+    flex-flow: column wrap;
     max-height: 117px;
     max-height:  100%;
+    margin-right: 10%;
+}
+
+.social-icons {
+    font-size: 2em;
+    align-self: flex-end;
+    margin-top: 80px;
 }
 
 .developer-img {
-    max-width: 180px;
-    position: relative;
     margin-right: 10%;
     margin-left: 10%;     
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);    
-    
-    /* margin-top:67px; */
 }
 
 h1.developer-name {
-width: 209px;
-height: 22px;
-color: #d7fcf5;
-font-family: 'MavenPro-Regular';
-font-size: 30px;
-font-weight: 400;
-line-height: 4.56px;
-align-self: flex-start;
-margin: 0;
+    height: 22px;
+    color: #d7fcf5;
+    font-family: 'MavenPro-Regular';
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 4.56px;
 }
 
 h2.job-info {
-width: 249px;
-height: 17px;
-color: #20816d;
-font-family: 'MavenPro-Regular';
-font-size: 18px;
-font-weight: 400;
-line-height: 21.56px;  
-align-self: flex-start;
-margin: 0;
+    width: 249px;
+    height: 17px;
+    color: #20816d;
+    font-family: 'MavenPro-Regular';
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.56px;  
+    align-self: flex-start;
+    margin: 0;
 }
 
 p.developer-info {
-max-width: 581px;
-height: 76px;
-color: #d7fcf5;
-font-family: Lato;
-font-size: 12px;
-font-weight: 400;
-line-height: 21.56px;
-margin-bottom: 10px;
-}
-
-.social-icons {
-    display: flex;
-    flex-direction: row;
-    font-size: 2em;
-    align-self: flex-end;
-    max-width: 200px;
-    margin-right: 20px;
+    max-width: 581px;
+    height: 76px;
+    color: #d7fcf5;
+    font-family: Lato;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 21.56px;
     margin-bottom: 10px;
 }
 
-/* in the meanwhile */
-/* set background to white need to work on correct radius */
 .fa-facebook-square {
     color: #3b5998; 
-    background: white;
     border-radius: 10px;    
 }
 
 .fa-twitter-square {
-    color: #00aced;
-    background: white;
+    color: #55cefa;
     border-radius: 10px; 
 }
 
 .fa-google-plus-square {
-    color: #dd4b39;
-    background: white;
+    color: #7a2821b4;
     border-radius: 10px; 
 }
 
 .fa-pinterest-square {
     color: #cb2027;
-    background: white;
     border-radius: 10px; 
 }
 
 .fa-linkedin-square {
-    color:  #007bb6;
-    background: white;
+    color:  #054a69;
     border-radius: 10px; 
 }
 
 /* in the meanwhile */
 .fa:hover {
-    color: gold;
+    color: rgba(255, 213, 0, 0.842);
 }
 
 

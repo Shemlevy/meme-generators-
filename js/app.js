@@ -109,7 +109,6 @@ function getMemeBykey(key) {
     var filteredImg = gImgs.filter(function (img) {
         var matchKey = false;
         var match = img.keywords.filter(function (keyword) {
-            // setPopularKey(key)
             return (keyword.includes(key));
         })
         if (match.length) return true;
@@ -136,7 +135,7 @@ function setPopularKey() {
     })
     console.log(wordsCountMap)
     for (var word in wordsCountMap) {
-        elKeyWordsInput.innerHTML += `<a style="font-size:${wordsCountMap[word] * 10}px;" onclick="getMemeBykey('${word}')">
+        elKeyWordsInput.innerHTML += `<a href="#container" style="font-size:${wordsCountMap[word] * 10}px;" onclick="getMemeBykey('${word}')">
         ${word}&nbsp
     </a>`
 
@@ -175,7 +174,7 @@ function getShadow(ctx, inputNum) {
 
 //change font size
 function ChangeFontSize(op) {
-    (op === '+') ? gMeme.txts[gActiveInput].size += 0.5 : gMeme.txts[gActiveInput].size -= 0.5
+    gMeme.txts[gActiveInput].size = event.target.value
     createTxtOnCanvas()
 }
 

@@ -27,9 +27,24 @@
   
 }
 
+
+@keyframes inout {
+    from, 50%, to {
+        opacity: 1;
+      }
+    
+      25%, 75% {
+        opacity: .25;
+      }
+    }
 .gallery > img:hover {
-   cursor: pointer;
+    cursor: pointer;
+    animation-name: inout;
+    animation-duration: .5s;   
 }
+
+
+
 
 
  /* Tablet */

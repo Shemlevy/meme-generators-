@@ -119,9 +119,11 @@ fieldset {
 @media (max-width:800px) {
     .contact-container {
         flex-flow: column wrap;
+        align-items: center;   
     }
     .info {
-        margin-top: 10px; 
+        margin-top: 10px;
+        margin: 0 auto; 
     }
     .info p.txt  {
         max-width: 90vw;
