@@ -12,7 +12,7 @@
     <title>Meme generator</title>
 </head>
 
-<body onload="init()">
+<body onload="init()" onkeydown="moveWithArrow()">
     <!-- navigation for desktop -->
     <nav class="main-nav">
         <ul class="desk-nav">
@@ -78,8 +78,8 @@
         </canvas>
         <!-- editor -->
         <secetion class="editor">
-            <input type="text" class="add-line" id="inputText1" onfocus="onFocus(0)" oninput="createTxtOnCancas()">
-            <input type="text" class="add-line" id="inputText2" onfocus="onFocus(1)" oninput="createTxtOnCancas()">
+            <input type="text" class="add-line" id="inputText1" onfocus="onFocus(0)" oninput="createTxtOnCanvas()">
+            <input type="text" class="add-line" id="inputText2" onfocus="onFocus(1)" oninput="createTxtOnCanvas()">
             <input type="button" value="+" class="btn" onclick="ChangeFontSize('+')">
             <input type="button" value="-" class="btn" onclick="ChangeFontSize('-')">
             <input type="color" onchange="changeColor(value)">

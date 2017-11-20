@@ -161,7 +161,7 @@ function onFocus(inputNum){
 
 //// draw text on canvas
 //CR: gMeme.texts soppused to have an array with objects of text. each object of his content and all its style properties 
-function createTxtOnCancas() {
+function createTxtOnCanvas() {
     //CR :  more practice solution.
     // console.log(activeLine)
     var ctx = gElCanvas.getContext("2d");
@@ -190,7 +190,7 @@ function getShadow(ctx, inputNum) {
 //change font size
 function ChangeFontSize(op) {
     (op === '+') ? gMeme.txts[gActiveInput].size += 0.5 : gMeme.txts[gActiveInput].size -= 0.5
-    createTxtOnCancas()
+    createTxtOnCanvas()
 }
 
 //// Download canvas
@@ -212,13 +212,13 @@ function downloadImg(elLink) {
 
 function changeColor(newColor) {
     gMeme.txts[gActiveInput].color = newColor;
-    createTxtOnCancas()
+    createTxtOnCanvas()
 }
 
 function addShadow() {
     debugger;
     gMeme.txts[gActiveInput].shadow = !gMeme.txts[gActiveInput].shadow;
-    createTxtOnCancas()
+    createTxtOnCanvas()
 }
 
 function alignTextTop(direction) {
@@ -229,21 +229,29 @@ function alignTextTop(direction) {
     } else {
         gMeme.txts[gActiveInput].positionx = 400;
     }
-    createTxtOnCancas()
+    createTxtOnCanvas()
 }
 
-// function alignTextBottom (direction) {
-//     if(direction === 'left') {
-//         gMeme.txts[0].positionBottomX = 10;
-//         createTxtOnCancas();
-//     } else if(direction === 'center') {
-//         gMeme.txts[0].positionBottomX = 100;
-//         createTxtOnCancas();
-//     } else {
-//         gMeme.txts[0].positionBottomX = 400;
-//         createTxtOnCancas()
-//     }
-// }
+
+function moveWithArrow() {
+     var key = event.keyCode;
+     switch(key) {
+        case 37:
+        gMeme.txts[gActiveInput].positionx -= 10
+            break;
+        case 38:
+        gMeme.txts[gActiveInput].positiony -= 10
+            break;
+        case 39:
+        gMeme.txts[gActiveInput].positionx += 10
+        break;
+        case 40:
+        gMeme.txts[gActiveInput].positiony += 10
+    } 
+        createTxtOnCanvas();
+}
+    
+
 
 
 
