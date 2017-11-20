@@ -188,6 +188,7 @@ function downloadImg(elLink) {
 
 //from here this scope is for changing setting for the lines 
 function changeColor(newColor) {
+    console.log(newColor)
     gMeme.txts[gActiveInput].color = newColor;
     createTxtOnCanvas()
 }

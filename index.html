@@ -42,7 +42,7 @@
         <!-- search bok -->
         <input type="text" value="Search for the perfect MeMe &#x1f50e;" class="searchbox text-input" onblur="[value='Search for the perfect MeMe &#x1f50e;']"
             onfocus="[value='']" onkeyup="getMemeBykey(value)">
-        <input type="url" value="Paste the image URL here" onfocus="this.value='';" class="img-url text-input">
+        <input type="url" placeholder="Paste the image URL here" class="img-url text-input">
         <input type="button" value="Upload an Image" class="btn upload-btn" onclick="drawOnCanvas('url')">
         <input type="button" value="Back To Gallery" class="btn" onclick="renderImgs(gImgs)">
         <!-- popular key words -->
@@ -79,13 +79,13 @@
         </canvas>
         <!-- editor -->
         <secetion class="editor">
-            <input type="text" value="Top Line" class="add-line" id="inputText1" onfocus="onFocus(0)" oninput="createTxtOnCanvas()">
-            <input type="text" value="Bottom Line" class="add-line" id="inputText2" onfocus="onFocus(1)" oninput="createTxtOnCanvas()">
+            <input type="text" placeholder="Top Line" class="add-line" id="inputText1" onfocus="onFocus(0)" oninput="createTxtOnCanvas()">
+            <input type="text" placeholder="Bottom Line" class="add-line" id="inputText2" onfocus="onFocus(1)" oninput="createTxtOnCanvas()">
             <input type="text" class="add-line input3" id="inputText3" onfocus="onFocus(2), addLine()" oninput="createTxtOnCanvas()">
             <input type="button" value="+" class="btn btn-size" onclick="ChangeFontSize('+')">
             <input type="button" value="-" class="btn btn-size" onclick="ChangeFontSize('-')">
             <input type="button" value="Add Line" class="btn" onclick="add3rdInput()">
-            <input type="color" onchange="changeColor(value)">
+            <input class="jscolor"  onchange="changeColor('#' + value)">
             <input type="button" value="shadow" class="btn" onclick="addShadow()">
             <select id='select' class="btn" onchange="return fontChange()"></select>
             <input type="button" value="Align Center" class="btn" onclick="alignTextTop('center',0)">
@@ -171,6 +171,7 @@
     <!-- main js script -->
     <script src="js/app.js"></script>
     <script src="js/fontSelector.js"></script>
+    <script src="js/jscolor.js"></script>
 </body>
 
 </html>
