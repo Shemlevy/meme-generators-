@@ -1,6 +1,7 @@
 
 body {
-    background: var(--bg-main-color);
+	background: var(--bg-main-color);
+	margin: 0;
 }
 .keywords {
 	margin: auto;
@@ -17,7 +18,7 @@ body {
 }
 .text-input  {
 	border:none;
-	background:#45454500;
+	background:#00000000;
 	color:#15c7a3;
 	border-bottom: 1px solid var(--main-color);
 	margin:0 0 5px;
@@ -88,4 +89,11 @@ body {
 
 .btn-phone {
 	display: none;
+}
+
+
+@media (max-width: 640px) {
+	.keywords {
+		max-width:90%;
+	}
 }

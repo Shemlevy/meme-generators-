@@ -6,14 +6,14 @@ var gImgs = [
     { id: 2, url: 'img/gallery/2.jpg', keywords: ['angry', 'crazy', 'ball'] },
     { id: 3, url: 'img/gallery/3.jpg', keywords: ['ball', 'table', 'green'] },
     { id: 4, url: 'img/gallery/4.jpg', keywords: ['puki', 'muki', 'google'] },
-    { id: 5, url: 'img/gallery/5.jpg', keywords: ['10', '5', '$'] },
+    { id: 5, url: 'img/gallery/5.jpg', keywords: ['GoGo', 'Modal', '$'] },
     { id: 6, url: 'img/gallery/6.jpg', keywords: ['money', 'big', 'small'] },
     { id: 7, url: 'img/gallery/7.jpg', keywords: ['phone', 'tv', 'baby'] },
-    { id: 8, url: 'img/gallery/8.jpg', keywords: ['arror', 'water', 'life'] },
-    { id: 9, url: 'img/gallery/9.jpg', keywords: ['muki', 'mad', 'smoke'] },
-    { id: 10, url: 'img/gallery/10.jpg', keywords: ['6', '7', 'smoke'] },
+    { id: 8, url: 'img/gallery/8.jpg', keywords: ['flow', 'water', 'life'] },
+    { id: 9, url: 'img/gallery/9.jpg', keywords: ['muki', 'flow', 'Air'] },
+    { id: 10, url: 'img/gallery/10.jpg', keywords: ['flow', '7', 'Air'] },
     { id: 11, url: 'img/gallery/11.jpg', keywords: ['angry', 'mad', 'smoke'] },
-    { id: 12, url: 'img/gallery/12.jpg', keywords: ['sad', 'mad', 'smoke'] },
+    { id: 12, url: 'img/gallery/12.jpg', keywords: ['Dudu', 'mad', 'smoke'] },
     { id: 13, url: 'img/gallery/13.jpg', keywords: ['foo', 'fii', 'smoke'] },
 ];
 
@@ -223,8 +223,14 @@ function moveWithArrow() {
         case 40:
         gMeme.txts[gActiveInput].positionY += 10
         break;
+        default:
+            return
     }
+    try {
         createTxtOnCanvas();
+    } catch (error) {
+        console.dir(error.name)
+    }
 }
 
 

@@ -34,7 +34,7 @@
     display: flex;
     flex-flow: column wrap;
     max-width: 100%;
-    min-width: 580px;
+    /* min-width: 580px; */
 }
 
 .info {
@@ -129,10 +129,14 @@ fieldset {
         max-width: 90vw;
         margin-left: 5px;
     } 
-    .fields {
-        /* display: flex;
-        flex-flow: column wrap; */
+    /* .fields {
         max-width: 90%;
-        /* min-width: 580px; */
-    }
+    } */
  }
+
+@media (min-width: 640px) {
+   .fields {
+        width: 100%;
+    }
+    
+}

@@ -6,7 +6,7 @@
 .about {
     display: flex;
     align-items: center;
-    height: 341px;
+    /* height: 341px; */
     background-color: var(--secondary-color);
     margin: 0 auto;
     max-width: 800px;
@@ -95,6 +95,50 @@ p.developer-info {
     color: rgba(255, 213, 0, 0.842);
 }
 
+
+@media (max-width: 640px) {
+    .about-wrapper {
+        display: flex;
+        flex-flow: column ;
+        max-height:50%; 
+        
+        
+    }
+    .about {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        background-color: var(--secondary-color);
+        margin: 5px;\ auto;
+        max-width: 100%;
+    }
+
+    .about h1{
+        margin: 0;
+    }
+
+    .info-txt {
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+        margin: 0;
+
+    }
+    .social-icons {
+        font-size: 2em;
+        align-self: flex-end;
+    }
+  
+    .developer-img {
+        width: 120px;
+        display: flex;
+        margin: 0 auto;
+        margin-top: 10px;
+        -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); 
+    }
+ 
+}
 
 
 
