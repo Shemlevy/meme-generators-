@@ -216,7 +216,6 @@ function changeColor(newColor) {
 }
 
 function addShadow() {
-    debugger;
     gMeme.txts[gActiveInput].shadow = !gMeme.txts[gActiveInput].shadow;
     createTxtOnCanvas()
 }
@@ -249,6 +248,19 @@ function moveWithArrow() {
         gMeme.txts[gActiveInput].positiony += 10
     } 
         createTxtOnCanvas();
+}
+
+function addLine() {
+    var newLine = {
+        size: 1.5,
+        align: 'left',
+        color: 'red',
+        font: 'Lato',
+        shadow: false,
+        positionx: 10,
+        positiony: 250, 
+    }
+    gMeme.txts.push(newLine)
 }
     
 
