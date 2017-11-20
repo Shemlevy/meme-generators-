@@ -87,17 +87,15 @@ body {
 	display: none
 }
 
-<<<<<<< HEAD
-.btn-phone {
-	display: none;
-}
+
 
 
 @media (max-width: 640px) {
 	.keywords {
 		max-width:90%;
 	}
-}
-=======
+	.btn-phone {
+		display: block;
+	}
 
->>>>>>> 1dae255f596eaa4ebc6a03bc18fbade6f8f36077
+}

@@ -25,21 +25,21 @@ var gMeme = {
     selectedImg: null,
     txts: [{
         line: 'I never eat Falafel',
-        size: 1.5,
+        size: 3,
         align: 'left',
         color: 'white',
-        font: 'Lato',
-        shadow: false,
-        positionX: 10,
+        font: 'Impact',
+        shadow: true,
+        positionX: 130,
         positionY: 50,
     }, {
         line: 'I never eat Falafel',
-        size: 1.5,
+        size: 3,
         align: 'left',
-        color: 'red',
-        font: 'Lato',
-        shadow: false,
-        positionX: 10,
+        color: 'white',
+        font: 'Impact',
+        shadow: true,
+        positionX: 130,
         positionY: 460,
     }]
 };
@@ -139,7 +139,6 @@ function setPopularKey() {
             wordsCountMap[keyword]++
         })
     })
-    console.log(wordsCountMap)
     for (var word in wordsCountMap) {
         elKeyWordsInput.innerHTML += `<a href="#container" style="font-size:${wordsCountMap[word] * 10}px;" onclick="getMemeBykey('${word}')">
         ${word}&nbsp
@@ -163,6 +162,7 @@ function createTxtOnCanvas() {
         ctx.fillStyle = gMeme.txts[i].color;
         var txt = document.getElementById('inputText' + (i + 1).toString()).value;
         ctx.fillText(txt, gMeme.txts[i].positionX, gMeme.txts[i].positionY);
+        
     }
 }
 
@@ -246,14 +246,15 @@ function addLine() {
     var newLine = {
         size: 1.5,
         align: 'left',
-        color: 'red',
+        color: 'white',
         font: 'Lato',
         shadow: false,
-        positionX: 10,
+        positionX: 130,
         positionY: 250,
     }
     gMeme.txts.push(newLine)
 }
+
 
 function add3rdInput() {
     document.getElementById('inputText3').classList.remove('input3');
