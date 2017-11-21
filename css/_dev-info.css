@@ -109,7 +109,7 @@ p.developer-info {
         flex-flow: column;
         align-items: center;
         background-color: var(--secondary-color);
-        margin: 5px;\ auto;
+        margin: 5px auto;
         max-width: 100%;
     }
 
