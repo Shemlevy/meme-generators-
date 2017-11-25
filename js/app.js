@@ -265,6 +265,31 @@ function moveTxt(direction) {
 }
 
 
+function uploadImg(a) {
+    console.log('event:', a.value);
+    
+}
+
+
+
+
+
+var intervalID = window.setInterval(changeDevelop, 4000);
+var shem = true;
+function changeDevelop() {
+    var elDevName = document.querySelector('.developer-name');
+    var elDevImg  = document.querySelector('.developer-img');
+    if (shem) {
+    elDevImg.src = `img/shem.jpg`;
+    elDevName.innerText = `Shem Levy`;
+    shem = false;
+    } else {
+        elDevImg.src = `img/asaf.jpg`;
+        elDevName.innerText = `Asaf Bello`;
+        shem = true;
+    }
+}
+
 
 
 

@@ -74,7 +74,7 @@
  }
 
 
- @media (max-width: 640px) {
+ @media (max-width: 880px) {
     .gallery {
         max-width: 350px;
     }
@@ -104,7 +104,6 @@
         margin-top: -25px;
         
     }
-
  }
 
 
